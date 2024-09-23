@@ -1,0 +1,53 @@
+name: PlatformIO build
+
+on:
+  pull_request:
+    branches: [master, v1.x]
+    paths:
+      - ".github/workflows/build_platformIO.yml"
+      - "library.json"
+      - "examples/**"
+      - "!examples/old_backups/**"
+      - "!examples/rf24_ATTiny/**"
+  push:
+    branches: [master, v1.x]
+    paths:
+      - ".github/workflows/build_platformIO.yml"
+      - "library.json"
+      - "examples/**"
+      - "!examples/old_backups/**"
+      - "!examples/rf24_ATTiny/**"
+  release:
+    types: [published, edited]
+
+jobs:
+  validate_lib_json:
+    uses: nRF24/.github/.github/workflows/validate_deploy_platformio.yaml@main
+    secrets: inherit
+    with:
+      deploy-release: ${{ github.event_name == 'release' }}
+
+  build:
+    needs: [validate_lib_json]
+    uses: nRF24/.github/.github/workflows/build_platformio.yaml@main
+    with:
+      example-path: ${{ matrix.example }}
+      board-id: ${{ matrix.board }}
+    strategy:
+      fail-fast: false
+      matrix:
+        example:
+          - "examples/RF24Mesh_Example/RF24Mesh_Example.ino"
+          - "examples/RF24Mesh_Example_Master_Statics/RF24Mesh_Example_Master_Statics.ino"
+          - "examples/RF24Mesh_Example_Master_To_Nodes/RF24Mesh_Example_Master_To_Nodes.ino"
+          - "examples/RF24Mesh_Example_Node2Node/RF24Mesh_Example_Node2Node.ino"
+          - "examples/RF24Mesh_Example_Node2NodeExtra/RF24Mesh_Example_Node2NodeExtra.ino"
+          - "examples/RF24Mesh_SerialConfig/RF24Mesh_SerialConfig.ino"
+          - "examples/RF24Mesh_Example_Master/RF24Mesh_Example_Master.ino"
+        board:
+          - "teensy31"
+          - "teensy35"
+          - "teensy36"
+          - "teensy40"
+          - "teensy41"
+          - "teensylc"

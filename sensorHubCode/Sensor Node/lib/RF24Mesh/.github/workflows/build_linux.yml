@@ -1,0 +1,61 @@
+name: Linux build
+
+on:
+  pull_request:
+    branches: [master, v1.x]
+    paths:
+      - "*.h"
+      - "*.cpp"
+      - "CMakeLists.txt"
+      - "cmake/**"
+      - "library.properties" # CMake gets lib info from here
+      - "examples_RPi/**"
+      - "!examples_RPi/*.py"
+      - "!**Makefile" # old build system is not tested in this workflow
+      - "pyRF24Mesh/*"
+      - ".github/workflows/build_linux.yml"
+  push:
+    branches: [master, v1.x]
+    paths:
+      - "*.h"
+      - "*.cpp"
+      - "CMakeLists.txt"
+      - "cmake/**"
+      - "library.properties" # CMake gets lib info from here
+      - "examples_RPi/**"
+      - "!examples_RPi/*.py"
+      - "!**Makefile" # old build system is not tested in this workflow
+      - "pyRF24Mesh/*"
+      - ".github/workflows/build_linux.yml"
+  release:
+    types: [created]
+
+env:
+  # Customize the CMake build type here (Release, Debug, RelWithDebInfo, etc.)
+  BUILD_TYPE: Release
+
+jobs:
+
+  using_cmake:
+    uses: nRF24/.github/.github/workflows/build_linux_cmake.yaml@main
+    with:
+      rf24mesh-ref: ${{ github.sha }}
+      compiler: ${{ matrix.toolchain.compiler }}
+      usr-dir: ${{ matrix.toolchain.usr_dir }}
+      examples-path: examples_RPi
+      deploy-release: ${{ github.event_name == 'release' && (matrix.toolchain.compiler == 'armhf' || matrix.toolchain.compiler == 'arm64') }}
+      py-wrapper-path: pyRF24Mesh
+    strategy:
+      fail-fast: false
+      matrix:
+        toolchain:
+          - compiler: "armhf"
+            usr_dir: "arm-linux-gnueabihf"
+          - compiler: "arm64"
+            usr_dir: "aarch64-linux-gnu"
+          # - compiler: "x86_64"
+          #   usr_dir: "x86_64-linux-gnux32"
+          # - compiler: "i686"
+          #   usr_dir: "i686-linux-gnu"
+          - compiler: "default" # github runner is hosted on a "amd64"
+            usr_dir: "local"
