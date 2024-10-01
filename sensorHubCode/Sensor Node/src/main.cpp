@@ -16,7 +16,7 @@ RF24Mesh mesh(radio, network);
  * In this example, configuration takes place below, prior to uploading the sketch to the device
  * A unique value from 1-255 must be configured for each node.
  */
-#define nodeID 1
+#define nodeID 4
 
 uint32_t displayTimer = 0;
 
