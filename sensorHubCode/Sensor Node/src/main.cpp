@@ -1,24 +1,22 @@
-#include <avr/io.h>
-#include <RF24.h>
-#include <RF24Network.h>
-#include <RF24Mesh.h>
-#include <SPI.h>
+#include <main.h>
 
 /**** Configure the nrf24l01 CE and CS pins ****/
-RF24 radio(9, 10);
+RF24 radio(CE, CS);
 RF24Network network(radio);
 RF24Mesh mesh(radio, network);
-
-/*
- * User Configuration: nodeID - A unique identifier for each radio. Allows addressing
- * to change dynamically with physical changes to the mesh.
- *
- * In this example, configuration takes place below, prior to uploading the sketch to the device
- * A unique value from 1-255 must be configured for each node.
- */
-#define nodeID 4
-
 uint32_t displayTimer = 0;
+
+/**** Configure the AHT20****/
+DFRobot_AHT20 aht20;
+uint8_t status;
+uint32_t tempC = 0;
+uint32_t RH = 0;
+
+/**** Configure the LPS331AP****/
+LPS lps331ap;
+uint32_t mBar;
+uint32_t altitude;
+
 
 struct payload_t
 {
@@ -28,21 +26,26 @@ struct payload_t
 
 void setup()
 {
-
   Serial.begin(115200);
-  while (!Serial)
-  {
-    // some boards need this because of native USB capability
+  while (!Serial){}
+  Wire.begin();
+
+  while((status = aht20.begin()) != 0){
+    Serial.print("AHT20 Sensor init failed. error status: ");
+    Serial.println(status);
+    delay(1000);    
   }
 
-  // Set the nodeID manually
-  mesh.setNodeID(nodeID);
+  if(!lps331ap.init()){
+    Serial.println("Failed to autodetect pressure sensor!");
+    while(1);
+  }
+  lps331ap.enableDefault();
 
-  // Set the PA Level to MIN and disable LNA for testing & power supply related issues
+  mesh.setNodeID(nodeID);
   radio.begin();
   radio.setPALevel(RF24_PA_MIN, 0);
 
-  // Connect to the mesh
   Serial.println(F("Connecting to the mesh..."));
   if (!mesh.begin())
   {
@@ -57,10 +60,7 @@ void setup()
     else
     {
       Serial.println(F("Radio hardware not responding."));
-      while (1)
-      {
-        // hold in an infinite loop
-      }
+      while (1){}
     }
   }
 }
@@ -74,9 +74,17 @@ void loop()
   if (millis() - displayTimer >= 1000)
   {
     displayTimer = millis();
+    
+    if(aht20.startMeasurementReady(true)){
+      tempC = (uint32_t)aht20.getTemperature_C();
+      RH = (uint32_t)aht20.getHumidity_RH();
+    }
+
+    mBar = (uint32_t)lps331ap.readPressureMillibars();
+    altitude = (uint32_t)lps331ap.pressureToAltitudeMeters(mBar);
 
     // Send an 'M' type message containing the current millis()
-    if (!mesh.write(&displayTimer, 'M', sizeof(displayTimer)))
+    if (!mesh.write(&mBar, 'M', sizeof(tempC)))
     {
 
       // If a write fails, check connectivity to the mesh network
@@ -99,7 +107,7 @@ void loop()
     else
     {
       Serial.print("Send OK: ");
-      Serial.println(displayTimer);
+      Serial.println(mBar);
     }
   }
 
