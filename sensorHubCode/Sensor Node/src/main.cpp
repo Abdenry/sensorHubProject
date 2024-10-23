@@ -9,20 +9,18 @@ uint32_t displayTimer = 0;
 /**** Configure the AHT20****/
 DFRobot_AHT20 aht20;
 uint8_t status;
-uint32_t tempC = 0;
-uint32_t RH = 0;
 
 /**** Configure the LPS331AP****/
 LPS lps331ap;
-uint32_t mBar;
-uint32_t altitude;
 
-
-struct payload_t
+struct sensorData_t
 {
-  unsigned long ms;
-  unsigned long counter;
-};
+  float tempC = 0;
+  float RH = 0;
+  float mBar;
+  float altitude;
+}packet;
+
 
 void setup()
 {
@@ -70,23 +68,22 @@ void loop()
 
   mesh.update();
 
-  // Send to the master node every second
-  if (millis() - displayTimer >= 1000)
+  // Send to the master node every 5 seconds
+  if (millis() - displayTimer >= 5000)
   {
     displayTimer = millis();
     
     if(aht20.startMeasurementReady(true)){
-      tempC = (uint32_t)aht20.getTemperature_C();
-      RH = (uint32_t)aht20.getHumidity_RH();
+      packet.tempC = aht20.getTemperature_C();
+      packet.RH = aht20.getHumidity_RH();
     }
 
-    mBar = (uint32_t)lps331ap.readPressureMillibars();
-    altitude = (uint32_t)lps331ap.pressureToAltitudeMeters(mBar);
+    packet.mBar = lps331ap.readPressureMillibars();
+    packet.altitude = lps331ap.pressureToAltitudeMeters(packet.mBar);
 
     // Send an 'M' type message containing the current millis()
-    if (!mesh.write(&mBar, 'M', sizeof(tempC)))
+    if (!mesh.write(&packet, 'M', sizeof(packet)))
     {
-
       // If a write fails, check connectivity to the mesh network
       if (!mesh.checkConnection())
       {
@@ -107,18 +104,14 @@ void loop()
     else
     {
       Serial.print("Send OK: ");
-      Serial.println(mBar);
+      Serial.print("tempC: ");
+      Serial.print(packet.tempC);
+      Serial.print(" RH: ");
+      Serial.print(packet.RH);
+      Serial.print(" mBar: ");
+      Serial.print(packet.mBar);
+      Serial.print(" altitude: ");
+      Serial.println(packet.altitude);
     }
-  }
-
-  while (network.available())
-  {
-    RF24NetworkHeader header;
-    payload_t payload;
-    network.read(header, &payload, sizeof(payload));
-    Serial.print("Received packet #");
-    Serial.print(payload.counter);
-    Serial.print(" at ");
-    Serial.println(payload.ms);
   }
 }
