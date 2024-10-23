@@ -6,6 +6,13 @@ RF24 radio(22,0);
 RF24Network network(radio);
 RF24Mesh mesh(radio, network);
 
+struct sensorData_t{
+	float tempC = 0;
+	float RH = 0;
+	float mBar = 0;
+	float altitude = 0;
+};
+
 int main(int argc, char** argv){
 	
 	mesh.setNodeID(0);
@@ -26,11 +33,11 @@ int main(int argc, char** argv){
 		while(network.available()){
 			RF24NetworkHeader header;
 			network.peek(header);
-			uint32_t dat = 0;
+			sensorData_t packet;
 			switch(header.type){
 				case 'M':
-					network.read(header, &dat, sizeof(dat));
-					printf("Rcv %u from 0%o\n", dat, header.from_node);
+					network.read(header, &packet, sizeof(packet));
+					printf("RCV temp_c: %f RH: %f mBar: %f altitude_metres: %f from 0%o\n", packet.tempC,packet.RH, packet.mBar, packet.altitude, header.from_node);
 					break;
 				default:
 					network.read(header, 0, 0);
