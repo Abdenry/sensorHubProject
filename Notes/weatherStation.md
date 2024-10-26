@@ -42,7 +42,6 @@ The station will have a myriad of sensors used to identify the correct weather t
 
 | Power |
 | ----- |
-
 | A battery will be used to power the device and sensors. The battery will be contained within a water proof container with any connections between it and devices outside the container, waterproof and weather resistent. The battery will be rechargeable via a solar panel mounted to the weather station. |
 
 ## Notes
