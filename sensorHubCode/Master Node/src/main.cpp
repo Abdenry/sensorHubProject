@@ -1,39 +1,53 @@
 #include "RF24/RF24.h"
 #include "RF24Network/RF24Network.h"
 #include "RF24Mesh/RF24Mesh.h"
+#include <curl/curl.h>
+
+void sendMetric(CURL *curl, CURLcode res, const char *metric, float value);
 
 RF24 radio(22,0);
 RF24Network network(radio);
 RF24Mesh mesh(radio, network);
 
 struct sensorData_t{
-	float tempC = 0;
 	float RH = 0;
+	float tempC = 0;
 	float mBar = 0;
 	float altitude = 0;
 };
 
 int main(int argc, char** argv){
+	const char *metricNames[] = {"Temperature", "Relative Humidity", "Pressure", "Altitude"};
+	int numberOfMetrics = sizeof(metricNames) / sizeof(metricNames[0]);
 	
+	// RF24
 	mesh.setNodeID(0);
 	radio.begin();
 	radio.setPALevel(RF24_PA_MIN, 0);
-
-	printf("Start\n");
+	// Libcurl
+	CURL *curl;
+	CURLcode res;
+	curl_global_init(CURL_GLOBAL_ALL);
+	curl = curl_easy_init();
+	
 	if(!mesh.begin()){
 		printf("Radio hardware not responding.\n");
-		return 0;
+		return 1;
 	}
+
+	printf("Start\n");
 	radio.printDetails();
+
+	sensorData_t packet;
+	float* metrics[] = {&packet.tempC, &packet.RH, &packet.mBar, &packet.altitude};
 	
 	while(1){
 		mesh.update();
 		mesh.DHCP();
-
+		
 		while(network.available()){
 			RF24NetworkHeader header;
 			network.peek(header);
-			sensorData_t packet;
 			switch(header.type){
 				case 'M':
 					network.read(header, &packet, sizeof(packet));
@@ -43,10 +57,36 @@ int main(int argc, char** argv){
 					network.read(header, 0, 0);
 					printf("Rcv bad type %d from 0%o\n", header.type, header.from_node);
 					break;
-
+			}
+			for(int i = 0; i < numberOfMetrics; i++){
+				sendMetric(curl, res, metricNames[i], *metrics[i]);
+				// printf("%f\n", *metrics[i]);
 			}
 		}
-		delay(2);
+		delay(1);
 	}
 	return 0;
+}
+
+void sendMetric(CURL* curl, CURLcode res, const char* metricName, float value){
+	if(curl) {
+		curl_easy_setopt(curl, CURLOPT_URL, "https://api.vinnievertongen.com.au/metrics");
+		curl_easy_setopt(curl, CURLOPT_USERPWD, "weathersensor:examplePass");
+
+		// const char *json_data = "{\"bucket\": \"weather-station\", \"org\": \"home\", \"measurement\": \"test-metric\", \"tags\": {\"location\": \"test\"}, \"fields\": {\"value\": 5}, \"timestamp\": \"2024-11-08T08:32:01Z\"}";
+		char json_data[1024];
+		snprintf(json_data, sizeof(json_data),
+                 "{\"bucket\": \"weather-station\", \"org\": \"home\", \"measurement\": \"%s\", "
+                 "\"tags\": {\"location\": \"test\"}, \"fields\": {\"value\": %.2f}, "
+                 "\"timestamp\": \"2024-11-08T08:32:01Z\"}",
+                 metricName, value);
+		curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json_data);
+		struct curl_slist *headers = NULL;
+		headers = curl_slist_append(headers, "Content-Type: application/json");
+		curl_easy_setopt(curl, CURLOPT_HTTPHEADER, headers);
+		res = curl_easy_perform(curl);
+		if(res != CURLE_OK) {
+			fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
+		}
+	}
 }
