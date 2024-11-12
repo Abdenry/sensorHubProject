@@ -2,8 +2,10 @@
 #include "RF24Network/RF24Network.h"
 #include "RF24Mesh/RF24Mesh.h"
 #include <curl/curl.h>
+#include <time.h>
 
-void sendMetric(CURL *curl, CURLcode res, const char *metric, float value);
+void sendMetric(CURL *curl, CURLcode res, const char *metric, float value, char *timeSTR);
+void updateTime(char *timeSTR, size_t lenSTR);
 
 RF24 radio(22,0);
 RF24Network network(radio);
@@ -29,6 +31,8 @@ int main(int argc, char** argv){
 	CURLcode res;
 	curl_global_init(CURL_GLOBAL_ALL);
 	curl = curl_easy_init();
+
+	char timeSTR[30];
 	
 	if(!mesh.begin()){
 		printf("Radio hardware not responding.\n");
@@ -48,10 +52,14 @@ int main(int argc, char** argv){
 		while(network.available()){
 			RF24NetworkHeader header;
 			network.peek(header);
+
+			updateTime(timeSTR, sizeof(timeSTR));
+			// printf("UTC time is: %s\n",timeSTR);
+
 			switch(header.type){
 				case 'M':
 					network.read(header, &packet, sizeof(packet));
-					printf("RCV temp_c: %f RH: %f mBar: %f altitude_metres: %f from 0%o\n", packet.tempC,packet.RH, packet.mBar, packet.altitude, header.from_node);
+					printf("RCV temp_c: %f RH: %f mBar: %f altitude_metres: %f from 0%o at UTC time: %s\n", packet.tempC,packet.RH, packet.mBar, packet.altitude, header.from_node, timeSTR);
 					break;
 				default:
 					network.read(header, 0, 0);
@@ -59,16 +67,16 @@ int main(int argc, char** argv){
 					break;
 			}
 			for(int i = 0; i < numberOfMetrics; i++){
-				sendMetric(curl, res, metricNames[i], *metrics[i]);
+				sendMetric(curl, res, metricNames[i], *metrics[i], timeSTR);
+				printf("\n");
 				// printf("%f\n", *metrics[i]);
 			}
 		}
-		delay(1);
 	}
 	return 0;
 }
 
-void sendMetric(CURL* curl, CURLcode res, const char* metricName, float value){
+void sendMetric(CURL* curl, CURLcode res, const char* metricName, float value, char *timeSTR){
 	if(curl) {
 		curl_easy_setopt(curl, CURLOPT_URL, "https://api.vinnievertongen.com.au/metrics");
 		curl_easy_setopt(curl, CURLOPT_USERPWD, "weathersensor:examplePass");
@@ -78,8 +86,8 @@ void sendMetric(CURL* curl, CURLcode res, const char* metricName, float value){
 		snprintf(json_data, sizeof(json_data),
                  "{\"bucket\": \"weather-station\", \"org\": \"home\", \"measurement\": \"%s\", "
                  "\"tags\": {\"location\": \"test\"}, \"fields\": {\"value\": %.2f}, "
-                 "\"timestamp\": \"2024-11-08T08:32:01Z\"}",
-                 metricName, value);
+                 "\"timestamp\": \"%s\"}",
+                 metricName, value, timeSTR);
 		curl_easy_setopt(curl, CURLOPT_POSTFIELDS, json_data);
 		struct curl_slist *headers = NULL;
 		headers = curl_slist_append(headers, "Content-Type: application/json");
@@ -89,4 +97,15 @@ void sendMetric(CURL* curl, CURLcode res, const char* metricName, float value){
 			fprintf(stderr, "curl_easy_perform() failed: %s\n", curl_easy_strerror(res));
 		}
 	}
+}
+
+void updateTime(char *timeSTR, size_t lenSTR){
+	time_t rawTime;
+	struct tm *info;
+
+	time(&rawTime);
+	info = gmtime(&rawTime);
+	
+	// 2024-11-08T08:32:01Z
+	strftime(timeSTR, lenSTR, "%Y-%m-%dT%H:%M:%SZ", info);
 }
