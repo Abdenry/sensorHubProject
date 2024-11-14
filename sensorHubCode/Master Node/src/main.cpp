@@ -3,6 +3,7 @@
 #include "RF24Mesh/RF24Mesh.h"
 #include <curl/curl.h>
 #include <time.h>
+#include <unistd.h>
 
 void sendMetric(CURL *curl, CURLcode res, const char *metric, float value, char *timeSTR);
 void updateTime(char *timeSTR, size_t lenSTR);
@@ -12,9 +13,9 @@ RF24Network network(radio);
 RF24Mesh mesh(radio, network);
 
 struct sensorData_t{
-	float RH = 0;
 	float tempC = 0;
-	float mBar = 0;
+	float RH = 0;
+	float bar = 0;
 	float altitude = 0;
 };
 
@@ -43,12 +44,12 @@ int main(int argc, char** argv){
 	radio.printDetails();
 
 	sensorData_t packet;
-	float* metrics[] = {&packet.tempC, &packet.RH, &packet.mBar, &packet.altitude};
+	float* metrics[] = {&packet.tempC, &packet.RH, &packet.bar, &packet.altitude};
 	
 	while(1){
 		mesh.update();
 		mesh.DHCP();
-		
+				
 		while(network.available()){
 			RF24NetworkHeader header;
 			network.peek(header);
@@ -59,7 +60,7 @@ int main(int argc, char** argv){
 			switch(header.type){
 				case 'M':
 					network.read(header, &packet, sizeof(packet));
-					printf("RCV temp_c: %f RH: %f mBar: %f altitude_metres: %f from 0%o at UTC time: %s\n", packet.tempC,packet.RH, packet.mBar, packet.altitude, header.from_node, timeSTR);
+					printf("RCV temp_c: %f RH: %f bar: %f altitude_metres: %f from 0%o at UTC time: %s\n", packet.tempC,packet.RH, packet.bar, packet.altitude, header.from_node, timeSTR);
 					break;
 				default:
 					network.read(header, 0, 0);
@@ -72,6 +73,7 @@ int main(int argc, char** argv){
 				// printf("%f\n", *metrics[i]);
 			}
 		}
+		usleep(5000);
 	}
 	return 0;
 }
