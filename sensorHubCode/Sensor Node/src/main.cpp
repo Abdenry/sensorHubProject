@@ -17,8 +17,7 @@ struct sensorData_t
 {
   float tempC = 0;
   float RH = 0;
-  float mBar;
-  float altitude;
+  float bar;
 }packet;
 
 
@@ -61,12 +60,15 @@ void setup()
       while (1){}
     }
   }
+  Serial.println(F("Connected!"));
 }
 
 void loop()
 {
 
   mesh.update();
+
+  aht20.reset();
 
   // Send to the master node every 5 seconds
   if (millis() - displayTimer >= 5000)
@@ -78,8 +80,8 @@ void loop()
       packet.RH = aht20.getHumidity_RH();
     }
 
-    packet.mBar = lps331ap.readPressureMillibars();
-    packet.altitude = lps331ap.pressureToAltitudeMeters(packet.mBar);
+    float mBar = lps331ap.readPressureMillibars();
+    packet.bar = mBar / 1000;
 
     // Send an 'M' type message containing the current millis()
     if (!mesh.write(&packet, 'M', sizeof(packet)))
@@ -103,15 +105,13 @@ void loop()
     }
     else
     {
-      Serial.print("Send OK: ");
+      Serial.print("\nSend OK: ");
       Serial.print("tempC: ");
       Serial.print(packet.tempC);
       Serial.print(" RH: ");
       Serial.print(packet.RH);
-      Serial.print(" mBar: ");
-      Serial.print(packet.mBar);
-      Serial.print(" altitude: ");
-      Serial.println(packet.altitude);
+      Serial.print(" bar: ");
+      Serial.print(packet.bar);
     }
   }
 }
