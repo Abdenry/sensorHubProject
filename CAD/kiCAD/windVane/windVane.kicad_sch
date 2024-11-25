@@ -973,86 +973,692 @@
 				)
 			)
 		)
-	)
-	(global_label "Vdd"
-		(shape input)
-		(at 185.42 80.01 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
+		(symbol "Device:C"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0.254)
 			)
-			(justify right)
-		)
-		(uuid "08b6a845-f38d-4880-83c4-fee910dc96c1")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 179.0482 80.01 0)
-			(effects
-				(font
-					(size 1.27 1.27)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "C"
+				(at 0.635 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
 				)
-				(justify right)
-				(hide yes)
 			)
-		)
-	)
-	(global_label "CLK"
-		(shape input)
-		(at 123.19 83.82 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "1255aee1-60b1-4f50-8745-00228bee6c17")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 116.6367 83.82 0)
-			(effects
-				(font
-					(size 1.27 1.27)
+			(property "Value" "C"
+				(at 0.635 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
 				)
-				(justify right)
-				(hide yes)
 			)
-		)
-	)
-	(global_label "SouthWest"
-		(shape input)
-		(at 123.19 93.98 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "175bba88-bb66-41f5-b526-05de68bdbe41")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 110.5288 93.98 0)
-			(effects
-				(font
-					(size 1.27 1.27)
+			(property "Footprint" ""
+				(at 0.9652 -3.81 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
 				)
-				(justify right)
-				(hide yes)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Unpolarized capacitor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "cap capacitor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "C_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "C_0_1"
+				(polyline
+					(pts
+						(xy -2.032 -0.762) (xy 2.032 -0.762)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.032 0.762) (xy 2.032 0.762)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "C_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 2.794)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 2.794)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
+		(symbol "Device:R"
+			(pin_numbers hide)
+			(pin_names
+				(offset 0)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "R"
+				(at 2.032 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "R"
+				(at 0 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at -1.778 0 90)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "R res resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "R_0_1"
+				(rectangle
+					(start -1.016 -2.54)
+					(end 1.016 2.54)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_1_1"
+				(pin passive line
+					(at 0 3.81 270)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -3.81 90)
+					(length 1.27)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
 			)
 		)
 	)
-	(global_label "SouthWest"
+	(junction
+		(at 123.19 91.44)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "1c420a1a-db3d-460c-9d1a-8a2470c13d5e")
+	)
+	(junction
+		(at 196.85 91.44)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "257fac1e-8a30-43d7-9a2c-d6a14d734ccc")
+	)
+	(junction
+		(at 200.66 59.69)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "281b53ed-709d-4875-a341-ea31d9b56b03")
+	)
+	(junction
+		(at 128.27 91.44)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6bc10729-d271-4a8a-848b-97bf68cfc083")
+	)
+	(junction
+		(at 83.82 59.69)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "73132f12-4a0d-4a29-aa71-ac26ffb1351c")
+	)
+	(junction
+		(at 121.92 59.69)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "77f5b901-3b2b-4b09-a44c-4935a0a5c8be")
+	)
+	(junction
+		(at 127 59.69)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9109fbd7-e317-4c21-a2f6-4faf28cde9c6")
+	)
+	(junction
+		(at 163.83 91.44)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9384ebe2-29d0-4a65-be63-76acefde2851")
+	)
+	(junction
+		(at 88.9 59.69)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "9d868ae0-388a-4531-8f6d-a696e801118e")
+	)
+	(junction
+		(at 157.48 59.69)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a98d68da-445d-4499-bc72-b6dd7622176c")
+	)
+	(junction
+		(at 85.09 91.44)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "abc77574-a4cb-4f6a-92dd-19a39005af8d")
+	)
+	(junction
+		(at 195.58 59.69)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "b224cbcf-143a-4189-91c5-fc924ca51ceb")
+	)
+	(junction
+		(at 162.56 59.69)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d7e48076-7b33-428e-a538-bdf1ef0a4661")
+	)
+	(junction
+		(at 158.75 91.44)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "e75bca14-6574-4862-a519-c85d9de13f0b")
+	)
+	(junction
+		(at 90.17 91.44)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ece49160-98a7-487f-9a1b-c22438375f79")
+	)
+	(junction
+		(at 201.93 91.44)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "feed2e66-d0bd-44f1-9b54-01f684f24995")
+	)
+	(wire
+		(pts
+			(xy 161.29 91.44) (xy 161.29 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0a5023d1-cf65-4729-94e2-3bc857913140")
+	)
+	(wire
+		(pts
+			(xy 90.17 91.44) (xy 95.25 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0e8a0f79-beb5-48a3-a6c4-2b725f78daa2")
+	)
+	(wire
+		(pts
+			(xy 85.09 99.06) (xy 87.63 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "10ea7db0-24dd-4001-a894-6c270134a39e")
+	)
+	(wire
+		(pts
+			(xy 80.01 91.44) (xy 85.09 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "131b9a8f-a54b-44ea-bc76-18c6e80187a9")
+	)
+	(wire
+		(pts
+			(xy 200.66 59.69) (xy 205.74 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "15426d6a-820d-405a-ae88-871c4ddb3e94")
+	)
+	(wire
+		(pts
+			(xy 201.93 91.44) (xy 207.01 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "251f5095-c95d-46c2-a39d-7441f876acde")
+	)
+	(wire
+		(pts
+			(xy 199.39 91.44) (xy 199.39 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2da96ccb-462f-412d-8498-9db3c79c5f07")
+	)
+	(wire
+		(pts
+			(xy 88.9 59.69) (xy 93.98 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "33117fb3-7b6e-42ef-8e17-eb1cd80e5c92")
+	)
+	(wire
+		(pts
+			(xy 195.58 67.31) (xy 198.12 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "33eddfa7-8007-4a62-b711-5b214c901da4")
+	)
+	(wire
+		(pts
+			(xy 116.84 59.69) (xy 121.92 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "36627e4e-d09f-422d-aef5-24f743e5db95")
+	)
+	(wire
+		(pts
+			(xy 87.63 91.44) (xy 87.63 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "36a2a506-dfe0-415e-8886-42261b59ef59")
+	)
+	(wire
+		(pts
+			(xy 158.75 99.06) (xy 161.29 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3763b343-6cde-4a5c-8060-c3ad273359e9")
+	)
+	(wire
+		(pts
+			(xy 152.4 59.69) (xy 157.48 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3d8661d6-8ff2-4b2d-b258-8d541a0752ee")
+	)
+	(wire
+		(pts
+			(xy 121.92 67.31) (xy 124.46 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4b5e81b6-d058-4189-9e03-15f6c11525b7")
+	)
+	(wire
+		(pts
+			(xy 163.83 91.44) (xy 168.91 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4d12b5aa-5977-4282-b7d2-c54d1c1b0cb7")
+	)
+	(wire
+		(pts
+			(xy 86.36 59.69) (xy 86.36 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5522537b-0d00-4416-8939-43217359d33d")
+	)
+	(wire
+		(pts
+			(xy 78.74 59.69) (xy 83.82 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "556553d5-e71f-4b45-9a90-4863ec8fdf01")
+	)
+	(wire
+		(pts
+			(xy 153.67 91.44) (xy 158.75 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5a60cbc7-42a8-4bb3-afbf-8b457a4fabc2")
+	)
+	(wire
+		(pts
+			(xy 123.19 99.06) (xy 125.73 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5caf956f-c065-4625-a4cf-627fbc9d0c6b")
+	)
+	(wire
+		(pts
+			(xy 191.77 91.44) (xy 196.85 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "60e3d843-5c69-490e-a28a-7142ec9f4cc3")
+	)
+	(wire
+		(pts
+			(xy 190.5 59.69) (xy 195.58 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7a38fa66-1aa5-4825-a283-5a3cf30590d8")
+	)
+	(wire
+		(pts
+			(xy 118.11 91.44) (xy 123.19 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "806587b5-92ec-4a13-8c76-021cbef17a64")
+	)
+	(wire
+		(pts
+			(xy 128.27 91.44) (xy 133.35 91.44)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "86984769-e45c-4804-9228-38d4e241b24c")
+	)
+	(wire
+		(pts
+			(xy 162.56 59.69) (xy 167.64 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "972ea4bb-4e82-4e9a-9bed-0ad1138be627")
+	)
+	(wire
+		(pts
+			(xy 198.12 59.69) (xy 198.12 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a71bb64b-d391-49c9-beca-73d68f492dc1")
+	)
+	(wire
+		(pts
+			(xy 124.46 59.69) (xy 124.46 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ac4cb809-f290-44e2-b298-5e0884ffb602")
+	)
+	(wire
+		(pts
+			(xy 125.73 91.44) (xy 125.73 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b30ad281-a90c-478c-b21f-e365daadcf90")
+	)
+	(wire
+		(pts
+			(xy 83.82 67.31) (xy 86.36 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b6070571-0a6c-4cca-9aa0-ee634085365c")
+	)
+	(wire
+		(pts
+			(xy 127 59.69) (xy 132.08 59.69)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c72db075-a1a8-41cd-8e57-103cd60193aa")
+	)
+	(wire
+		(pts
+			(xy 160.02 59.69) (xy 160.02 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e568385b-ce69-4d0d-bf07-689cef094fb4")
+	)
+	(wire
+		(pts
+			(xy 157.48 67.31) (xy 160.02 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f00264c1-ba3e-4696-a951-ad05f2ba3e38")
+	)
+	(wire
+		(pts
+			(xy 196.85 99.06) (xy 199.39 99.06)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f540b933-a1b2-4b45-93dd-d52aa3d8e059")
+	)
+	(global_label "South"
 		(shape output)
-		(at 111.76 116.84 0)
-		(fields_autoplaced yes)
+		(at 95.25 91.44 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "22168e42-130a-4a44-8612-576d0039a995")
+		(uuid "000eef95-6d8e-46ea-a64a-77645a024363")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 124.4212 116.84 0)
+			(at 106.3993 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1064,7 +1670,7 @@
 	)
 	(global_label "Vdd"
 		(shape input)
-		(at 165.1 111.76 180)
+		(at 190.5 59.69 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1072,9 +1678,184 @@
 			)
 			(justify right)
 		)
-		(uuid "2ddf86a0-5f62-48ee-86cb-cecfa9b7198e")
+		(uuid "04081aa9-9203-4f52-b7ca-f10729c1d6d8")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 158.7282 111.76 0)
+			(at 184.1282 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "Vdd"
+		(shape input)
+		(at 162.56 67.31 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "0ca0e536-5404-4bc7-bbaa-9a3770e73b50")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 162.56 73.6818 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "CLK"
+		(shape input)
+		(at 105.41 120.65 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "1255aee1-60b1-4f50-8745-00228bee6c17")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 98.8567 120.65 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "Vdd"
+		(shape input)
+		(at 191.77 91.44 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "12f51630-dce8-4f9f-9021-97a2b98bd771")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 185.3982 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "SouthWest"
+		(shape input)
+		(at 105.41 130.81 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "175bba88-bb66-41f5-b526-05de68bdbe41")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 92.7488 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "GND"
+		(shape input)
+		(at 195.58 67.31 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "18fc0319-eef3-4a4d-8e73-38f916772c32")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 195.58 74.1657 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "NorthEast"
+		(shape output)
+		(at 132.08 59.69 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "1a65d643-07bd-44a8-91ac-211bdb531124")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 143.2293 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "Vdd"
+		(shape input)
+		(at 118.11 91.44 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "1c727dac-6980-4276-8361-f12567eca1d0")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 111.7382 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "GND"
+		(shape input)
+		(at 157.48 67.31 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "2744e2e5-0294-4b23-8bf6-825d7b751744")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 157.48 74.1657 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1086,7 +1867,7 @@
 	)
 	(global_label "SH{slash}~{LD}"
 		(shape input)
-		(at 123.19 81.28 180)
+		(at 105.41 118.11 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1096,7 +1877,7 @@
 		)
 		(uuid "33436801-815e-4bb4-8ee0-34204a51392b")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 114.0362 81.28 0)
+			(at 96.2562 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1106,9 +1887,30 @@
 			)
 		)
 	)
+	(global_label "West"
+		(shape output)
+		(at 168.91 91.44 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "338b7c65-218d-468b-a432-bc5da6023838")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 180.0593 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "SER"
 		(shape input)
-		(at 135.89 96.52 0)
+		(at 118.11 133.35 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1118,7 +1920,7 @@
 		)
 		(uuid "35d818a2-f37e-401f-bc7a-1a56cbddb342")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 142.5037 96.52 0)
+			(at 124.7237 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1130,7 +1932,7 @@
 	)
 	(global_label "Q_{h}"
 		(shape output)
-		(at 135.89 99.06 0)
+		(at 118.11 135.89 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1140,7 +1942,28 @@
 		)
 		(uuid "392ac942-a281-424a-9c14-68cb114d38b5")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 141.1757 99.06 0)
+			(at 123.3957 135.89 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "SouthEast"
+		(shape output)
+		(at 205.74 59.69 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "3bdf40aa-66a8-43e8-8672-c036748f0724")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 216.8893 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1152,7 +1975,7 @@
 	)
 	(global_label "GND"
 		(shape input)
-		(at 165.1 64.77 180)
+		(at 121.92 67.31 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1160,9 +1983,9 @@
 			)
 			(justify right)
 		)
-		(uuid "3e9cb8d4-3036-4000-a8f2-e2ceb23e0b23")
+		(uuid "3e3755c3-fa7d-4c2b-a765-1de4f758e066")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 158.2443 64.77 0)
+			(at 121.92 74.1657 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1174,7 +1997,7 @@
 	)
 	(global_label "West"
 		(shape input)
-		(at 135.89 86.36 0)
+		(at 118.11 123.19 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1184,7 +2007,7 @@
 		)
 		(uuid "4335a21c-e22e-44c7-94db-6656cf39dc57")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 143.169 86.36 0)
+			(at 125.389 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1194,31 +2017,31 @@
 			)
 		)
 	)
-	(global_label "NorhtWest"
-		(shape output)
-		(at 115.57 66.04 0)
+	(global_label "GND"
+		(shape input)
+		(at 85.09 99.06 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
-		(uuid "46eecc73-eb45-42bd-9167-1866a0ca744a")
+		(uuid "4921e4d2-d222-44c8-acf9-5e74409f74ee")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 127.9894 66.04 0)
+			(at 85.09 105.9157 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 				(hide yes)
 			)
 		)
 	)
 	(global_label "SH{slash}~{LD}"
 		(shape input)
-		(at 166.37 93.98 0)
+		(at 148.59 130.81 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1228,7 +2051,7 @@
 		)
 		(uuid "4981a77f-da77-4886-9e22-ffe43942e2aa")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 175.5238 93.98 0)
+			(at 157.7438 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1240,7 +2063,7 @@
 	)
 	(global_label "GND"
 		(shape input)
-		(at 123.19 99.06 180)
+		(at 105.41 135.89 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1250,7 +2073,7 @@
 		)
 		(uuid "49abf2ec-f248-4c1b-8aa8-be0d85fefc6f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 116.3343 99.06 0)
+			(at 98.5543 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1262,29 +2085,7 @@
 	)
 	(global_label "Vdd"
 		(shape input)
-		(at 111.76 111.76 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "4db5b2ac-541f-4890-954d-0d9398e8fe15")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 118.1318 111.76 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "Vdd"
-		(shape input)
-		(at 165.1 62.23 180)
+		(at 127 67.31 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1292,9 +2093,9 @@
 			)
 			(justify right)
 		)
-		(uuid "52a01be4-226e-4b02-a1a3-c956d1917f6d")
+		(uuid "4a9dd55e-17fc-4c80-8d4f-c9b2b1b9844b")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 158.7282 62.23 0)
+			(at 127 73.6818 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1304,31 +2105,9 @@
 			)
 		)
 	)
-	(global_label "GND"
-		(shape input)
-		(at 115.57 63.5 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "562229aa-f1de-4363-b21b-6ea50c274646")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 122.4257 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "Vdd"
 		(shape input)
-		(at 135.89 81.28 0)
+		(at 118.11 118.11 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1338,7 +2117,7 @@
 		)
 		(uuid "5c4348ff-3b74-40c1-b355-3f0181655d4b")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 142.2618 81.28 0)
+			(at 124.4818 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1348,9 +2127,9 @@
 			)
 		)
 	)
-	(global_label "East"
-		(shape output)
-		(at 185.42 85.09 180)
+	(global_label "Vdd"
+		(shape input)
+		(at 116.84 59.69 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1358,9 +2137,9 @@
 			)
 			(justify right)
 		)
-		(uuid "5ce3238b-8402-4e70-b7a4-05fc10960acf")
+		(uuid "658381e1-8c40-4fff-a625-0186896dd501")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 178.383 85.09 0)
+			(at 110.4682 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1370,9 +2149,31 @@
 			)
 		)
 	)
-	(global_label "~{Q}_{h}"
+	(global_label "Vdd"
+		(shape input)
+		(at 80.01 91.44 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "6932db75-2a46-4161-8300-a46602625fce")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 73.6382 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "Q_{h}"
 		(shape output)
-		(at 166.37 99.06 0)
+		(at 148.59 135.89 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1382,7 +2183,7 @@
 		)
 		(uuid "69d11da4-3eee-4b2e-83a8-0f8c6b0992c3")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 171.6557 99.06 0)
+			(at 153.8757 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1392,31 +2193,9 @@
 			)
 		)
 	)
-	(global_label "NorthEast"
-		(shape output)
-		(at 165.1 67.31 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "740bedce-dcc8-46a2-9a20-fe40a4451003")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 152.9226 67.31 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "South"
 		(shape input)
-		(at 135.89 91.44 0)
+		(at 118.11 128.27 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1426,7 +2205,7 @@
 		)
 		(uuid "75d06db9-9af9-411d-9871-4a64f7143911")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 144.2574 91.44 0)
+			(at 126.4774 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1438,7 +2217,7 @@
 	)
 	(global_label "GND"
 		(shape input)
-		(at 137.16 54.61 270)
+		(at 83.82 67.31 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1448,7 +2227,7 @@
 		)
 		(uuid "79104801-7039-476d-92c4-52ca2293989d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 137.16 61.4657 90)
+			(at 83.82 74.1657 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1460,7 +2239,7 @@
 	)
 	(global_label "North"
 		(shape input)
-		(at 135.89 93.98 0)
+		(at 118.11 130.81 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1470,7 +2249,7 @@
 		)
 		(uuid "793b9eb8-6d68-4d2e-b3a6-7ab2e88edca0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 144.0156 93.98 0)
+			(at 126.2356 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1482,7 +2261,7 @@
 	)
 	(global_label "Vdd"
 		(shape input)
-		(at 166.37 86.36 0)
+		(at 148.59 123.19 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1492,51 +2271,7 @@
 		)
 		(uuid "7b0a4b3f-503c-44b0-8079-b71065a6ea6a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 172.7418 86.36 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "GND"
-		(shape input)
-		(at 165.1 114.3 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "8161595b-e69a-4bd5-9989-84cf8596bb0b")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 158.2443 114.3 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "GND"
-		(shape input)
-		(at 92.71 85.09 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "857804ba-dd24-4dd9-9829-7bcdd76d88df")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 99.5657 85.09 0)
+			(at 154.9618 123.19 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1548,17 +2283,60 @@
 	)
 	(global_label "Vdd"
 		(shape input)
-		(at 115.57 60.96 0)
+		(at 201.93 99.06 270)
 		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "94aa46c2-c886-4a09-a53f-f345da274a74")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 201.93 105.4318 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "Vdd"
+		(shape input)
+		(at 153.67 91.44 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "964e6f82-48d8-4edb-a2cb-988a1602ec5b")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 147.2982 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "NorthWest"
+		(shape output)
+		(at 207.01 91.44 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "8e1fa67a-fac9-41fe-b2c9-63cb636eacec")
+		(uuid "a015d3b3-4c1f-4d20-9ee7-23a5be5f65af")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 121.9418 60.96 0)
+			(at 218.1593 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1568,9 +2346,9 @@
 			)
 		)
 	)
-	(global_label "SouthEast"
-		(shape output)
-		(at 165.1 116.84 180)
+	(global_label "Vdd"
+		(shape input)
+		(at 90.17 99.06 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1578,9 +2356,9 @@
 			)
 			(justify right)
 		)
-		(uuid "982ae2a2-0f4d-4499-8208-30f1dad69771")
+		(uuid "a0a42e2d-472b-488a-9fcd-5acf9556913b")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 152.6808 116.84 0)
+			(at 90.17 105.4318 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1592,29 +2370,7 @@
 	)
 	(global_label "GND"
 		(shape input)
-		(at 138.43 121.92 90)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "9e90607c-9975-41bb-b51c-522c72550ecb")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 138.43 115.0643 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "NorthWest"
-		(shape input)
-		(at 123.19 91.44 180)
+		(at 158.75 99.06 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1622,9 +2378,9 @@
 			)
 			(justify right)
 		)
-		(uuid "a6e13bc4-30f3-4c67-9c4b-46d0f611256e")
+		(uuid "a4a91849-251b-4d99-af17-c574bfbe9cbf")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 110.7706 91.44 0)
+			(at 158.75 105.9157 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1634,53 +2390,31 @@
 			)
 		)
 	)
-	(global_label "South"
-		(shape output)
-		(at 140.97 121.92 90)
+	(global_label "NorthWest"
+		(shape input)
+		(at 105.41 128.27 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
-		(uuid "a77b93fc-adf5-4c95-97fd-253095eb246d")
+		(uuid "a6e13bc4-30f3-4c67-9c4b-46d0f611256e")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 140.97 113.5526 90)
+			(at 92.9906 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
-				(hide yes)
-			)
-		)
-	)
-	(global_label "West"
-		(shape output)
-		(at 92.71 87.63 0)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left)
-		)
-		(uuid "b0e56879-b3ba-4d95-953d-83740207fd77")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 99.989 87.63 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
+				(justify right)
 				(hide yes)
 			)
 		)
 	)
 	(global_label "NorthEast"
 		(shape input)
-		(at 123.19 86.36 180)
+		(at 105.41 123.19 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1690,7 +2424,29 @@
 		)
 		(uuid "b632b45e-521a-47fa-95dd-11b729bcccd4")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 111.0126 86.36 0)
+			(at 93.2326 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "Vdd"
+		(shape input)
+		(at 88.9 67.31 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "b975ca20-309f-4292-8087-2d0a3f250ebe")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 88.9 73.6818 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1702,7 +2458,7 @@
 	)
 	(global_label "East"
 		(shape input)
-		(at 135.89 88.9 0)
+		(at 118.11 125.73 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1712,7 +2468,7 @@
 		)
 		(uuid "c89bd412-5047-4a88-a665-4362fb1b51e8")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 142.927 88.9 0)
+			(at 125.147 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1724,7 +2480,7 @@
 	)
 	(global_label "Vdd"
 		(shape input)
-		(at 134.62 54.61 270)
+		(at 78.74 59.69 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1734,7 +2490,7 @@
 		)
 		(uuid "c8aab5ce-4258-4e3a-80d0-93658b1894bd")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 134.62 60.9818 90)
+			(at 72.3682 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1744,31 +2500,31 @@
 			)
 		)
 	)
-	(global_label "Vdd"
+	(global_label "GND"
 		(shape input)
-		(at 135.89 121.92 90)
+		(at 196.85 99.06 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify left)
+			(justify right)
 		)
-		(uuid "cd59963e-e294-4b2b-a774-f2a6eaf25482")
+		(uuid "cb0d36d0-4215-45c0-a39d-61d89f35c014")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 135.89 115.5482 90)
+			(at 196.85 105.9157 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 				(hide yes)
 			)
 		)
 	)
 	(global_label "clkINH"
 		(shape input)
-		(at 135.89 83.82 0)
+		(at 118.11 120.65 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1778,7 +2534,7 @@
 		)
 		(uuid "d136239c-c88e-4fe7-9cc7-7044e51e091f")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 144.9229 83.82 0)
+			(at 127.1429 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1790,7 +2546,7 @@
 	)
 	(global_label "GND"
 		(shape input)
-		(at 185.42 82.55 180)
+		(at 123.19 99.06 270)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1798,9 +2554,9 @@
 			)
 			(justify right)
 		)
-		(uuid "d609afb6-686c-43fc-b454-c0dd759495d5")
+		(uuid "d502992e-0755-42fa-a1d7-59b1aad8a9d0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 178.5643 82.55 0)
+			(at 123.19 105.9157 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1812,17 +2568,38 @@
 	)
 	(global_label "Vdd"
 		(shape input)
-		(at 92.71 82.55 0)
+		(at 200.66 67.31 270)
 		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "d5bcc47c-df19-4ca4-9f4d-43ce2a8b14c9")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 200.66 73.6818 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "SouthWest"
+		(shape output)
+		(at 133.35 91.44 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "dda72b21-cecc-4bef-9056-cc3218f1f53c")
+		(uuid "dd58bd37-6e4d-44ea-aa59-ec60c97fbc94")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 99.0818 82.55 0)
+			(at 144.4993 91.44 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1834,7 +2611,7 @@
 	)
 	(global_label "clkINH"
 		(shape input)
-		(at 166.37 96.52 0)
+		(at 148.59 133.35 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1844,7 +2621,7 @@
 		)
 		(uuid "e1877b21-6cf7-47cf-ab20-7752496048f9")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 175.4029 96.52 0)
+			(at 157.6229 133.35 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1854,9 +2631,31 @@
 			)
 		)
 	)
+	(global_label "Vdd"
+		(shape input)
+		(at 128.27 99.06 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "e1b12eac-7cf3-477e-ae41-ab1410344454")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 128.27 105.4318 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "GND"
 		(shape input)
-		(at 166.37 88.9 0)
+		(at 148.59 125.73 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1866,7 +2665,7 @@
 		)
 		(uuid "e7cd5ab4-f306-4d2a-b771-1fb9aad14abe")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 173.2257 88.9 0)
+			(at 155.4457 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1876,19 +2675,18 @@
 			)
 		)
 	)
-	(global_label "GND"
-		(shape input)
-		(at 111.76 114.3 0)
-		(fields_autoplaced yes)
+	(global_label "East"
+		(shape output)
+		(at 167.64 59.69 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left)
 		)
-		(uuid "ea685cfe-38a3-4740-b39b-2c995cec82c9")
+		(uuid "eafd1c85-4709-4237-a333-6f0ec5506b15")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 118.6157 114.3 0)
+			(at 178.7893 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1900,7 +2698,7 @@
 	)
 	(global_label "SouthEast"
 		(shape input)
-		(at 123.19 88.9 180)
+		(at 105.41 125.73 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1910,7 +2708,7 @@
 		)
 		(uuid "edc7a43c-beb0-4d86-a88d-28aaa73ee4e0")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 110.7708 88.9 0)
+			(at 92.9908 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1922,28 +2720,28 @@
 	)
 	(global_label "North"
 		(shape output)
-		(at 139.7 54.61 270)
+		(at 93.98 59.69 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
-			(justify right)
+			(justify left)
 		)
 		(uuid "ee2ae2df-17ee-49fa-9caf-206834b5bdc9")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 139.7 65.7593 90)
+			(at 105.1293 59.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify right)
+				(justify left)
 				(hide yes)
 			)
 		)
 	)
 	(global_label "~{Q}_{h}"
 		(shape output)
-		(at 123.19 96.52 180)
+		(at 105.41 133.35 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1953,7 +2751,51 @@
 		)
 		(uuid "f11a861f-81f3-480d-86e3-7700068a6564")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 117.9043 96.52 0)
+			(at 100.1243 133.35 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "Vdd"
+		(shape input)
+		(at 152.4 59.69 180)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "f7a1c190-9e39-4e7e-99da-11c451133037")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 146.0282 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "Vdd"
+		(shape input)
+		(at 163.83 99.06 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "fd56277c-92d5-473f-bd78-ddf54c887707")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 163.83 105.4318 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1965,7 +2807,7 @@
 	)
 	(global_label "CLK"
 		(shape input)
-		(at 166.37 91.44 0)
+		(at 148.59 128.27 0)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -1975,7 +2817,7 @@
 		)
 		(uuid "fde7095d-9dd9-437e-af69-bc29326182ab")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 172.9233 91.44 0)
+			(at 155.1433 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1986,239 +2828,153 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x03")
-		(at 87.63 85.09 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "3df0dafc-a393-4c73-9a45-2d9b17e82da7")
-		(property "Reference" "West1"
-			(at 85.09 83.8199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Conn_01x03"
-			(at 85.09 86.3599 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
-			(at 87.63 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 87.63 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 87.63 85.09 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "7edc2c11-e9c2-4873-b023-264d47fa4d87")
-		)
-		(pin "2"
-			(uuid "50504868-83fa-4a99-abc0-938e17d8da60")
-		)
-		(pin "3"
-			(uuid "860da432-d26b-46a3-97be-6fae47f63417")
-		)
-		(instances
-			(project "windVane"
-				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
-					(reference "West1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x03")
-		(at 138.43 127 90)
-		(mirror x)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "412e5137-0459-4a1d-8635-a040de3a7668")
-		(property "Reference" "South1"
-			(at 141.224 130.302 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Conn_01x03"
-			(at 139.6999 129.54 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
-			(at 138.43 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 138.43 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 138.43 127 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "2c4eefe8-17ea-419d-8e9c-f28bca6d42c7")
-		)
-		(pin "2"
-			(uuid "40a306d9-5e24-41c8-af93-52182f2ac5d1")
-		)
-		(pin "3"
-			(uuid "507630ad-2c43-42b6-a55c-bbdb70b68359")
-		)
-		(instances
-			(project "windVane"
-				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
-					(reference "South1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x03")
-		(at 110.49 63.5 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "5f07a6f9-685f-4ca7-8b5b-1d1d8c7f72c8")
-		(property "Reference" "NorthWest1"
-			(at 107.95 62.2299 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "Conn_01x03"
-			(at 107.95 64.7699 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
-			(at 110.49 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 110.49 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 110.49 63.5 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e2675bea-b118-40b8-bfcc-5a203479dd72")
-		)
-		(pin "2"
-			(uuid "54f9d494-d10e-41bb-b544-6622fd089469")
-		)
-		(pin "3"
-			(uuid "13edbcc7-1c1b-49cd-ab7b-56c550134440")
-		)
-		(instances
-			(project "windVane"
-				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
-					(reference "NorthWest1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Connector_Generic:Conn_01x03")
-		(at 170.18 64.77 0)
+		(lib_id "Device:R")
+		(at 162.56 63.5 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "860c254d-f698-4a92-bcb9-d13f20b2dd32")
-		(property "Reference" "NorthEast1"
-			(at 172.72 63.4999 0)
+		(uuid "028cdf89-3b55-4768-88bd-46ad63aa63af")
+		(property "Reference" "R3"
+			(at 165.1 62.2299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "10k"
+			(at 165.1 64.7699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 164.338 63.5 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 162.56 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 162.56 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "3904c8d5-a9a7-46f8-81d4-820ae8041c03")
+		)
+		(pin "2"
+			(uuid "4d80e077-396c-4c79-9843-86f25336657a")
+		)
+		(instances
+			(project "windVane"
+				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
+					(reference "R3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 196.85 95.25 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "12d86400-8d12-4a91-98f4-fae1694cecc5")
+		(property "Reference" "C8"
+			(at 192.024 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100nF"
+			(at 193.802 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 195.8848 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 196.85 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 196.85 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2a433611-a004-4c9d-b59b-f751697a25e7")
+		)
+		(pin "2"
+			(uuid "0335fe10-a687-4655-b085-209926d68576")
+		)
+		(instances
+			(project "windVane"
+				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
+					(reference "C8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x03")
+		(at 198.12 54.61 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "138175d9-fce7-4885-8354-3b2e7e5cfbbc")
+		(property "Reference" "SouthEast"
+			(at 200.914 51.308 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2227,7 +2983,7 @@
 			)
 		)
 		(property "Value" "Conn_01x03"
-			(at 172.72 66.0399 0)
+			(at 199.3899 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2237,7 +2993,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
-			(at 170.18 64.77 0)
+			(at 198.12 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2246,7 +3002,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 170.18 64.77 0)
+			(at 198.12 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2255,7 +3011,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 170.18 64.77 0)
+			(at 198.12 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2264,13 +3020,293 @@
 			)
 		)
 		(pin "1"
-			(uuid "55d5f082-af24-4f18-aa02-059703c5345f")
+			(uuid "59cb8ee2-3238-45bd-b7e6-284e413f816c")
 		)
 		(pin "2"
-			(uuid "6220fd51-7590-40d6-a517-df54e2539acc")
+			(uuid "2cbf671f-adaa-4ea5-86c8-e27d38bdb55c")
 		)
 		(pin "3"
-			(uuid "f46b4b87-b779-4e82-94df-f790e1bed3e3")
+			(uuid "5e33e5c5-2e15-4156-819f-17ff1b5bcd19")
+		)
+		(instances
+			(project "windVane"
+				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
+					(reference "SouthEast")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 88.9 63.5 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "222e45e1-c5ba-4b49-892a-20a382e23257")
+		(property "Reference" "R1"
+			(at 91.44 62.2299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "10k"
+			(at 91.44 64.7699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 90.678 63.5 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 88.9 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 88.9 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "71b08b03-11e5-4d20-b538-cea474c74034")
+		)
+		(pin "2"
+			(uuid "ecc32882-4076-408e-b123-e92e5076784a")
+		)
+		(instances
+			(project ""
+				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
+					(reference "R1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 85.09 95.25 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "400fe3a4-4a21-47c9-aeb4-baefae67a852")
+		(property "Reference" "C5"
+			(at 80.264 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100nF"
+			(at 82.042 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 84.1248 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 85.09 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 85.09 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9d065aef-18cf-4cbe-bdb7-2f72528852e4")
+		)
+		(pin "2"
+			(uuid "668fcee3-e833-40cd-b16a-526e68c5b419")
+		)
+		(instances
+			(project "windVane"
+				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
+					(reference "C5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 90.17 95.25 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "41dbffc5-ee97-4f42-8c51-7106ef8386c2")
+		(property "Reference" "R5"
+			(at 92.71 93.9799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "10k"
+			(at 92.71 96.5199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 91.948 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 90.17 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 90.17 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4d4d258e-460e-46fd-80d0-472d0664cc97")
+		)
+		(pin "2"
+			(uuid "37d20f69-8e0b-4ea7-910b-266bc8d686cb")
+		)
+		(instances
+			(project "windVane"
+				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
+					(reference "R5")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x03")
+		(at 124.46 54.61 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4a108be2-663c-4aff-b8a4-b30b69a824a5")
+		(property "Reference" "NorthEast1"
+			(at 127.254 51.308 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Conn_01x03"
+			(at 125.7299 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
+			(at 124.46 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 124.46 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 124.46 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a1da0c7e-3104-4e90-806a-93b1a7195b30")
+		)
+		(pin "2"
+			(uuid "ddb135ce-ecae-4896-bfa2-1bdbd5131782")
+		)
+		(pin "3"
+			(uuid "dbdf9ad9-9226-485e-b87e-2a504e902304")
 		)
 		(instances
 			(project "windVane"
@@ -2282,36 +3318,35 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x03")
-		(at 190.5 82.55 0)
+		(lib_id "Device:R")
+		(at 200.66 63.5 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "88869a3d-eafd-4db1-b3ad-e6b20bcaaca6")
-		(property "Reference" "East1"
-			(at 193.04 81.2799 0)
+		(uuid "5bec0c94-c911-41a7-852f-28f8d0fcf8b2")
+		(property "Reference" "R4"
+			(at 203.2 62.2299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
+				(justify right)
 			)
 		)
-		(property "Value" "Conn_01x03"
-			(at 193.04 83.8199 0)
+		(property "Value" "10k"
+			(at 203.2 64.7699 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
-				(hide yes)
+				(justify right)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
-			(at 190.5 82.55 0)
+		(property "Footprint" ""
+			(at 202.438 63.5 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2320,7 +3355,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 190.5 82.55 0)
+			(at 200.66 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2328,8 +3363,8 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 190.5 82.55 0)
+		(property "Description" "Resistor"
+			(at 200.66 63.5 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2338,18 +3373,152 @@
 			)
 		)
 		(pin "1"
-			(uuid "cb26647c-bb8e-46b8-a470-a853de69eadc")
+			(uuid "5451f239-f504-4736-8d32-49b84f71150a")
 		)
 		(pin "2"
-			(uuid "7a70c0d9-91df-4182-acb2-32bfdccc1a05")
-		)
-		(pin "3"
-			(uuid "3e30ed64-7048-47ff-a7e6-65ef5a4cde8b")
+			(uuid "2ca6ea3f-43ce-4f36-a72b-40440a6120bb")
 		)
 		(instances
 			(project "windVane"
 				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
-					(reference "East1")
+					(reference "R4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 128.27 95.25 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "5e34efce-6a81-4783-bc50-2909d19fe2ba")
+		(property "Reference" "R6"
+			(at 130.81 93.9799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "10k"
+			(at 130.81 96.5199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 130.048 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 128.27 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 128.27 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "9ea91399-2667-4ee1-83ef-a45c89664e99")
+		)
+		(pin "2"
+			(uuid "82de88d4-c6f5-4921-b220-6264a044e527")
+		)
+		(instances
+			(project "windVane"
+				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
+					(reference "R6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 83.82 63.5 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "6bace903-579b-49dd-9cc8-d87d4566c811")
+		(property "Reference" "C1"
+			(at 78.994 63.5 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100nF"
+			(at 80.772 63.5 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 82.8548 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 83.82 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 83.82 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "91427d84-bc22-4c66-b0ea-2af7458e67c0")
+		)
+		(pin "2"
+			(uuid "0e1a5871-abae-448b-8f8a-bee62a5fa3cb")
+		)
+		(instances
+			(project ""
+				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
+					(reference "C1")
 					(unit 1)
 				)
 			)
@@ -2357,15 +3526,15 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x03")
-		(at 137.16 49.53 90)
+		(at 199.39 86.36 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "9b2f0688-d3c8-4e2b-8092-b3aae57f9d56")
-		(property "Reference" "North1"
-			(at 139.954 46.228 90)
+		(uuid "8a7023d1-cd34-465b-9db6-be5c782f1b62")
+		(property "Reference" "NorthWest"
+			(at 202.184 83.058 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2374,7 +3543,7 @@
 			)
 		)
 		(property "Value" "Conn_01x03"
-			(at 138.4299 46.99 0)
+			(at 200.6599 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2384,7 +3553,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
-			(at 137.16 49.53 0)
+			(at 199.39 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2393,7 +3562,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 137.16 49.53 0)
+			(at 199.39 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2402,7 +3571,223 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 137.16 49.53 0)
+			(at 199.39 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "dd09e6fb-679a-4ed3-856a-7e0580f8e42f")
+		)
+		(pin "2"
+			(uuid "3ed670ed-0079-4794-a8b9-933ecdbee67b")
+		)
+		(pin "3"
+			(uuid "77ae1fbf-2b92-4730-aa76-0325ce4578a2")
+		)
+		(instances
+			(project "windVane"
+				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
+					(reference "NorthWest")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x03")
+		(at 87.63 86.36 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "8f9d78f7-1b0f-425a-af50-552ca447e44d")
+		(property "Reference" "South"
+			(at 90.424 83.058 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Conn_01x03"
+			(at 88.8999 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
+			(at 87.63 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 87.63 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 87.63 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "2a8806dd-18bc-4287-8be1-0c4e32c74c6f")
+		)
+		(pin "2"
+			(uuid "cab76acb-171d-494d-b6fa-de8be12de977")
+		)
+		(pin "3"
+			(uuid "105f618e-17af-432b-be37-e8ff12c291c5")
+		)
+		(instances
+			(project "windVane"
+				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
+					(reference "South")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 163.83 95.25 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "923c0e43-e8d6-4728-bc5b-fb5f16b5fe3a")
+		(property "Reference" "R7"
+			(at 166.37 93.9799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "10k"
+			(at 166.37 96.5199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 165.608 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 163.83 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 163.83 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5ceeb467-b879-430a-a546-40acc9151703")
+		)
+		(pin "2"
+			(uuid "b78ea407-b676-47c9-a8b9-6d6ba99ae754")
+		)
+		(instances
+			(project "windVane"
+				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
+					(reference "R7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x03")
+		(at 86.36 54.61 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9b2f0688-d3c8-4e2b-8092-b3aae57f9d56")
+		(property "Reference" "North1"
+			(at 89.154 51.308 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "Conn_01x03"
+			(at 87.6299 52.07 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
+			(at 86.36 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 86.36 54.61 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 86.36 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2429,17 +3814,83 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x03")
-		(at 106.68 114.3 0)
-		(mirror y)
+		(lib_id "Device:C")
+		(at 195.58 63.5 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "b1451549-44b9-4b14-b060-42b1f9b0b158")
-		(property "Reference" "SouthWest1"
-			(at 104.14 113.0299 0)
+		(uuid "a1207b76-452a-44ca-bcd8-7a573c6df15f")
+		(property "Reference" "C4"
+			(at 190.754 63.5 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100nF"
+			(at 192.532 63.5 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 194.6148 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 195.58 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 195.58 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "1abbc4f4-2eb7-4814-bfe5-87c36339a4e7")
+		)
+		(pin "2"
+			(uuid "e00dfbcd-92fd-4ea5-9456-e46c4b814f45")
+		)
+		(instances
+			(project "windVane"
+				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
+					(reference "C4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x03")
+		(at 160.02 54.61 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ae77677b-ed9f-47fa-a9bc-382aadbfbfbc")
+		(property "Reference" "East"
+			(at 162.814 51.308 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2448,7 +3899,7 @@
 			)
 		)
 		(property "Value" "Conn_01x03"
-			(at 104.14 115.5699 0)
+			(at 161.2899 52.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2458,7 +3909,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
-			(at 106.68 114.3 0)
+			(at 160.02 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2467,7 +3918,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 106.68 114.3 0)
+			(at 160.02 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2476,7 +3927,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 106.68 114.3 0)
+			(at 160.02 54.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2485,51 +3936,53 @@
 			)
 		)
 		(pin "1"
-			(uuid "c94b2296-03c7-454b-a339-52fbecf49676")
+			(uuid "654cdf7e-8b4c-4e10-97be-babaa88f311a")
 		)
 		(pin "2"
-			(uuid "5996df07-b6f2-4408-8e18-a6bae709d58e")
+			(uuid "7415d2f8-d2d7-490e-bca1-f11be251c74b")
 		)
 		(pin "3"
-			(uuid "f30dbdef-f158-4c22-a0d8-f7a0265d9b8e")
+			(uuid "7f05107d-40e0-4cec-b098-a5d537e08822")
 		)
 		(instances
 			(project "windVane"
 				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
-					(reference "SouthWest1")
+					(reference "East")
 					(unit 1)
 				)
 			)
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_02x08_Counter_Clockwise")
-		(at 128.27 88.9 0)
+		(lib_id "Connector_Generic:Conn_01x03")
+		(at 161.29 86.36 90)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "b197d272-8772-486b-a9ce-3760da499e63")
-		(property "Reference" "SN74HC165"
-			(at 129.54 77.724 0)
+		(uuid "b1944e75-49a8-4cab-902b-07762e37242e")
+		(property "Reference" "West"
+			(at 164.084 83.058 90)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
-		(property "Value" "Conn_02x08_Counter_Clockwise"
-			(at 129.54 77.47 0)
+		(property "Value" "Conn_01x03"
+			(at 162.5599 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 				(hide yes)
 			)
 		)
-		(property "Footprint" "Package_DIP:DIP-16_W7.62mm"
-			(at 128.27 88.9 0)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
+			(at 161.29 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2538,7 +3991,78 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 128.27 88.9 0)
+			(at 161.29 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 161.29 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "facc0ba6-b600-4f5a-93c3-4a6709d3fbf2")
+		)
+		(pin "2"
+			(uuid "55aaebc1-ea15-48b9-a84d-04983757532d")
+		)
+		(pin "3"
+			(uuid "39e37c84-212f-45f4-84d6-d42299eadfb4")
+		)
+		(instances
+			(project "windVane"
+				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
+					(reference "West")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_02x08_Counter_Clockwise")
+		(at 110.49 125.73 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b197d272-8772-486b-a9ce-3760da499e63")
+		(property "Reference" "SN74HC165"
+			(at 111.76 114.554 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_02x08_Counter_Clockwise"
+			(at 111.76 114.3 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "Package_DIP:DIP-16_W7.62mm"
+			(at 110.49 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 110.49 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2547,7 +4071,7 @@
 			)
 		)
 		(property "Description" "Generic connector, double row, 02x08, counter clockwise pin numbering scheme (similar to DIP package numbering), script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 128.27 88.9 0)
+			(at 110.49 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2613,17 +4137,156 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector_Generic:Conn_01x03")
-		(at 170.18 114.3 0)
+		(lib_id "Device:R")
+		(at 127 63.5 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
 		(fields_autoplaced yes)
-		(uuid "b62a48d1-aa01-4309-8687-f1a85270cbd0")
-		(property "Reference" "SouthEast1"
-			(at 172.72 113.0299 0)
+		(uuid "ba208b07-7c23-4e69-8c21-3f575e2dbc68")
+		(property "Reference" "R2"
+			(at 129.54 62.2299 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "10k"
+			(at 129.54 64.7699 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 128.778 63.5 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 127 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 127 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "af9136fa-26aa-452a-928e-0f434787a437")
+		)
+		(pin "2"
+			(uuid "54872e6d-2c0a-439b-806c-8a6da9b9803b")
+		)
+		(instances
+			(project "windVane"
+				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
+					(reference "R2")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 201.93 95.25 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "c02262b5-6071-458a-9677-819c7f2be356")
+		(property "Reference" "R8"
+			(at 204.47 93.9799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "10k"
+			(at 204.47 96.5199 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 203.708 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 201.93 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor"
+			(at 201.93 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "285ae257-b529-4315-b24d-b5b6b730cd2c")
+		)
+		(pin "2"
+			(uuid "91802329-cdd1-42fa-8905-db173729e3e6")
+		)
+		(instances
+			(project "windVane"
+				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
+					(reference "R8")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x03")
+		(at 125.73 86.36 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "cbaef8f6-a768-40ac-82f3-c2b72abad961")
+		(property "Reference" "SouthWest"
+			(at 128.524 83.058 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2632,7 +4295,7 @@
 			)
 		)
 		(property "Value" "Conn_01x03"
-			(at 172.72 115.5699 0)
+			(at 126.9999 83.82 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2642,7 +4305,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
-			(at 170.18 114.3 0)
+			(at 125.73 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2651,7 +4314,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 170.18 114.3 0)
+			(at 125.73 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2660,7 +4323,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 170.18 114.3 0)
+			(at 125.73 86.36 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2669,18 +4332,18 @@
 			)
 		)
 		(pin "1"
-			(uuid "862a363d-f6b6-4116-90af-d572ebde6245")
+			(uuid "f3d840cf-f743-476a-aa1e-f81ef08382ff")
 		)
 		(pin "2"
-			(uuid "29aaac2c-7671-410a-9a80-37df0819674b")
+			(uuid "2d87c24f-3e9d-4a57-a67a-bc41bd0e653e")
 		)
 		(pin "3"
-			(uuid "2870d45c-dfcd-4165-bdb5-35e415a9303f")
+			(uuid "21a0f977-f5e2-4395-a4f5-ea3a90282241")
 		)
 		(instances
 			(project "windVane"
 				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
-					(reference "SouthEast1")
+					(reference "SouthWest")
 					(unit 1)
 				)
 			)
@@ -2688,7 +4351,7 @@
 	)
 	(symbol
 		(lib_id "Connector_Generic:Conn_01x06")
-		(at 161.29 91.44 0)
+		(at 143.51 128.27 0)
 		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
@@ -2697,7 +4360,7 @@
 		(dnp no)
 		(uuid "e976acbb-aa6a-42fe-8355-b61f651b86df")
 		(property "Reference" "SIG1"
-			(at 161.29 82.55 0)
+			(at 143.51 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2705,7 +4368,7 @@
 			)
 		)
 		(property "Value" "Conn_01x06"
-			(at 161.29 82.55 0)
+			(at 143.51 119.38 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2714,7 +4377,7 @@
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical"
-			(at 161.29 91.44 0)
+			(at 143.51 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2723,7 +4386,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 161.29 91.44 0)
+			(at 143.51 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2732,7 +4395,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"
-			(at 161.29 91.44 0)
+			(at 143.51 128.27 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2762,6 +4425,274 @@
 			(project ""
 				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
 					(reference "SIG1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 157.48 63.5 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ed87c8a9-18e9-4ad9-9ba5-fba86551d181")
+		(property "Reference" "C3"
+			(at 152.654 63.5 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100nF"
+			(at 154.432 63.5 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 156.5148 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 157.48 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 157.48 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "08a9495b-cfcb-4468-8c75-04cce6d1c22e")
+		)
+		(pin "2"
+			(uuid "8136d849-240d-45dc-8d2c-71c91ebc09c3")
+		)
+		(instances
+			(project "windVane"
+				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
+					(reference "C3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 158.75 95.25 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f5df6938-628f-43d2-8d52-0eefafff1948")
+		(property "Reference" "C7"
+			(at 153.924 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100nF"
+			(at 155.702 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 157.7848 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 158.75 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 158.75 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "14b19630-49a3-49fd-9296-d2147a5b7cb4")
+		)
+		(pin "2"
+			(uuid "2d0d46de-8cd2-49a5-a168-8caf61a9c8be")
+		)
+		(instances
+			(project "windVane"
+				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
+					(reference "C7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 123.19 95.25 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f9899e7d-9075-40ee-a4a1-ed71d1e8b022")
+		(property "Reference" "C6"
+			(at 118.364 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100nF"
+			(at 120.142 95.25 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 122.2248 91.44 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 123.19 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 123.19 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ca4e1633-4aef-48c3-82c6-56c010c6aca5")
+		)
+		(pin "2"
+			(uuid "a95c527e-7302-4dae-8b05-7c66cadb6edc")
+		)
+		(instances
+			(project "windVane"
+				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
+					(reference "C6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C")
+		(at 121.92 63.5 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "fb23cc1a-17e2-49be-a6d2-84c48dbddbfd")
+		(property "Reference" "C2"
+			(at 117.094 63.5 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "100nF"
+			(at 118.872 63.5 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 120.9548 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 121.92 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Unpolarized capacitor"
+			(at 121.92 63.5 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d3c9926d-2717-42e8-bd45-cf7a7f0ca0a6")
+		)
+		(pin "2"
+			(uuid "d620e2db-6613-442c-9bc1-2fbb1da4d39f")
+		)
+		(instances
+			(project "windVane"
+				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
+					(reference "C2")
 					(unit 1)
 				)
 			)
