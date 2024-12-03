@@ -1,4 +1,5 @@
 #include <main.h>
+#define sendPackIntervalSec 5
 
 /**** Configure the nrf24l01 CE and CS pins ****/
 RF24 radio(CE, CS);
@@ -13,16 +14,32 @@ uint8_t status;
 /**** Configure the LPS331AP****/
 LPS lps331ap;
 
+/**** Configure the ANEMOMETER****/
+volatile int revolutionsAnemometerCount;
+ 
+int overflow_count = 0;
+float conversionRatio = (2*PI) / 60;
+
+
+
 struct sensorData_t
 {
   float tempC = 0;
   float RH = 0;
   float bar;
+  float windSpeed = 0;
 }packet;
 
 
 void setup()
 {
+  /**** Configure the ANEMOMETER****/
+  DDRD &= ~(1<<2);
+  PORTD |= (1<<2);
+
+  EICRA |= (1<<ISC01);
+  EIMSK |= (1<<INT0);
+  
   Serial.begin(115200);
   while (!Serial){}
   Wire.begin();
@@ -61,6 +78,7 @@ void setup()
     }
   }
   Serial.println(F("Connected!"));
+  sei();
 }
 
 void loop()
@@ -69,11 +87,21 @@ void loop()
   mesh.update();
 
   aht20.reset();
-
-  // Send to the master node every 5 seconds
-  if (millis() - displayTimer >= 5000)
+  
+  // Send to the master node every x seconds
+  if (millis() - displayTimer >= (sendPackIntervalSec * 1000))
   {
     displayTimer = millis();
+
+    // packet.windSpeed = 0.1* (conversionRatio * (revolutionsAnemometerCount/(timeInterval/60)));
+    // revolutionsAnemometerCount = 0;
+
+    overflow_count += 5;
+    if(overflow_count >= 60){
+      packet.windSpeed = 0.1*(conversionRatio * revolutionsAnemometerCount);
+      overflow_count = 0;
+      revolutionsAnemometerCount = 0;
+    }
     
     if(aht20.startMeasurementReady(true)){
       packet.tempC = aht20.getTemperature_C();
@@ -112,6 +140,11 @@ void loop()
       Serial.print(packet.RH);
       Serial.print(" bar: ");
       Serial.print(packet.bar);
+      Serial.println();
     }
   }
+}
+
+ISR(INT0_vect){
+  revolutionsAnemometerCount += 1;
 }

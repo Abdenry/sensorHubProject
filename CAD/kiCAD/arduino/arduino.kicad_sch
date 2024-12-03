@@ -1031,142 +1031,6 @@
 				)
 			)
 		)
-		(symbol "Device:C"
-			(pin_numbers hide)
-			(pin_names
-				(offset 0.254)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "C"
-				(at 0.635 2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Value" "C"
-				(at 0.635 -2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-				)
-			)
-			(property "Footprint" ""
-				(at 0.9652 -3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Unpolarized capacitor"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "cap capacitor"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "C_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "C_0_1"
-				(polyline
-					(pts
-						(xy -2.032 -0.762) (xy 2.032 -0.762)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy -2.032 0.762) (xy 2.032 0.762)
-					)
-					(stroke
-						(width 0.508)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-			)
-			(symbol "C_1_1"
-				(pin passive line
-					(at 0 3.81 270)
-					(length 2.794)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -3.81 90)
-					(length 2.794)
-					(name "~"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-		)
 		(symbol "MCU_Module:Arduino_Nano_v3.x"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -1791,32 +1655,6 @@
 				)
 			)
 		)
-	)
-	(junction
-		(at 143.51 66.04)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "4b93c10c-4873-45ae-af99-743b74f19c7f")
-	)
-	(wire
-		(pts
-			(xy 143.51 63.5) (xy 143.51 66.04)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1e464e13-3a5e-4783-a233-fccead7c774f")
-	)
-	(wire
-		(pts
-			(xy 143.51 66.04) (xy 143.51 68.58)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ddc2a79e-a89e-4030-ab99-10851f70ddb0")
 	)
 	(global_label "D4"
 		(shape output)
@@ -3314,28 +3152,6 @@
 			)
 		)
 	)
-	(global_label "GND"
-		(shape input)
-		(at 135.89 66.04 180)
-		(fields_autoplaced yes)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify right)
-		)
-		(uuid "ca8afcd7-5553-4b87-9b5b-462d09875dd8")
-		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 129.0343 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-				(hide yes)
-			)
-		)
-	)
 	(global_label "D12"
 		(shape output)
 		(at 133.35 109.22 180)
@@ -3426,7 +3242,7 @@
 	)
 	(global_label "+5V"
 		(shape input)
-		(at 143.51 63.5 90)
+		(at 143.51 68.58 90)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -3436,7 +3252,7 @@
 		)
 		(uuid "da264663-7dc0-4d80-ba77-f904982bed15")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 143.51 56.6443 90)
+			(at 143.51 61.7243 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3995,74 +3811,6 @@
 			(project ""
 				(path "/b7a5c6ba-6eaf-4478-9f28-6d4e80b25921"
 					(reference "5Vbar1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 139.7 66.04 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "3530e1fb-39c6-48f4-a67f-edbc3f58ce9b")
-		(property "Reference" "C1"
-			(at 139.7 58.42 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "10uF"
-			(at 139.7 60.96 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Capacitor_THT:C_Disc_D4.7mm_W2.5mm_P5.00mm"
-			(at 143.51 65.0748 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 139.7 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Unpolarized capacitor"
-			(at 139.7 66.04 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "201721fe-ee46-40d3-8496-7b1dcb62cf86")
-		)
-		(pin "2"
-			(uuid "0313181d-4a1b-4200-b192-a06b3d2e8cf7")
-		)
-		(instances
-			(project ""
-				(path "/b7a5c6ba-6eaf-4478-9f28-6d4e80b25921"
-					(reference "C1")
 					(unit 1)
 				)
 			)
