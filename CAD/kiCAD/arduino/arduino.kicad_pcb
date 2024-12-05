@@ -129,7 +129,7 @@
 			)
 		)
 		(property "Value" "Conn_02x05_Counter_Clockwise"
-			(at 1.27 12.49 360)
+			(at 1.27 12.49 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "676a8e93-f377-4dbe-a8a5-ac7482c20511")
@@ -495,7 +495,7 @@
 			)
 		)
 		(property "Value" "Conn_02x05_Counter_Clockwise"
-			(at 1.27 12.49 360)
+			(at 1.27 12.49 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "53a9818e-aa6a-4bc4-8b17-c2eb2959b864")
@@ -1286,7 +1286,7 @@
 			)
 		)
 		(property "Value" "Conn_01x02"
-			(at 0 7.5 360)
+			(at 0 7.5 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "523196cf-9a8b-4554-a164-d7d5608b7531")
@@ -1541,11 +1541,11 @@
 		(locked yes)
 		(layer "F.Cu")
 		(uuid "56fc0071-443a-4f3a-be2b-8acf8808f43b")
-		(at 159.1 117.615 180)
+		(at 159.38 117.615 180)
 		(descr "Through hole straight pin header, 1x02, 2.54mm pitch, single row")
 		(tags "Through hole pin header THT 1x02 2.54mm single row")
 		(property "Reference" "powerIN2"
-			(at -1 -3.46 360)
+			(at -1 -3.46 0)
 			(layer "F.SilkS")
 			(hide yes)
 			(uuid "dc8793ca-892d-435b-b403-e11c10331434")
@@ -1557,7 +1557,7 @@
 			)
 		)
 		(property "Value" "Conn_01x02"
-			(at 0 4.87 360)
+			(at 0 4.87 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "a7849747-7df1-4c8c-ab93-0ed971706ce6")
@@ -1815,7 +1815,7 @@
 			)
 		)
 		(property "Value" "Conn_02x05_Counter_Clockwise"
-			(at 1.27 12.49 360)
+			(at 1.27 12.49 0)
 			(layer "F.Fab")
 			(hide yes)
 			(uuid "e2a8d686-728f-4ba7-8ee8-c8cbdd003144")
@@ -2576,6 +2576,7 @@
 		)
 	)
 	(footprint "Module:Arduino_Nano"
+		(locked yes)
 		(layer "F.Cu")
 		(uuid "d522281e-ad91-46a6-ac51-2f7375705f2d")
 		(at 154.25 109.3 180)
@@ -3324,8 +3325,8 @@
 		(uuid "0257740f-02f1-4923-a54e-6280bf34bc15")
 	)
 	(gr_circle
-		(center 159.1 122.49)
-		(end 161.1 122.49)
+		(center 159.38 122.49)
+		(end 161.38 122.49)
 		(stroke
 			(width 0.05)
 			(type default)
@@ -3335,8 +3336,8 @@
 		(uuid "0f292428-739b-4b05-b067-4eb725b1dd30")
 	)
 	(gr_rect
-		(start 129.6 66.14)
-		(end 163.5 131.915)
+		(start 129.14 65.9116)
+		(end 164.14 130.9116)
 		(stroke
 			(width 0.05)
 			(type default)
@@ -3346,8 +3347,8 @@
 		(uuid "8db94d32-57ea-41ee-8007-fd5d31626c8c")
 	)
 	(gr_circle
-		(center 159.1 68.6775)
-		(end 161.1 68.6775)
+		(center 159.1 69.14)
+		(end 161.1 69.14)
 		(stroke
 			(width 0.05)
 			(type default)
@@ -3357,8 +3358,8 @@
 		(uuid "a600dfbc-a9f4-4b87-aa22-f4d0687252f6")
 	)
 	(gr_circle
-		(center 133.9 68.6775)
-		(end 135.9 68.6775)
+		(center 133.9 69.14)
+		(end 135.9 69.14)
 		(stroke
 			(width 0.05)
 			(type default)
