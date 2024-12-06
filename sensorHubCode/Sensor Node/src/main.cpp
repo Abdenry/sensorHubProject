@@ -16,11 +16,9 @@ LPS lps331ap;
 
 /**** Configure the ANEMOMETER****/
 volatile int revolutionsAnemometerCount;
- 
+
 int overflow_count = 0;
-float conversionRatio = (2*PI) / 60;
-
-
+float conversionRatio = (2 * PI) / 60;
 
 struct sensorData_t
 {
@@ -28,31 +26,35 @@ struct sensorData_t
   float RH = 0;
   float bar;
   float windSpeed = 0;
-}packet;
-
+} packet;
 
 void setup()
 {
   /**** Configure the ANEMOMETER****/
-  DDRD &= ~(1<<2);
-  PORTD |= (1<<2);
+  DDRD &= ~(1 << 2);
+  PORTD |= (1 << 2);
 
-  EICRA |= (1<<ISC01);
-  EIMSK |= (1<<INT0);
-  
+  EICRA |= (1 << ISC01);
+  EIMSK |= (1 << INT0);
+
   Serial.begin(115200);
-  while (!Serial){}
+  while (!Serial)
+  {
+  }
   Wire.begin();
 
-  while((status = aht20.begin()) != 0){
+  while ((status = aht20.begin()) != 0)
+  {
     Serial.print("AHT20 Sensor init failed. error status: ");
     Serial.println(status);
-    delay(1000);    
+    delay(1000);
   }
 
-  if(!lps331ap.init()){
+  if (!lps331ap.init())
+  {
     Serial.println("Failed to autodetect pressure sensor!");
-    while(1);
+    while (1)
+      ;
   }
   lps331ap.enableDefault();
 
@@ -74,7 +76,9 @@ void setup()
     else
     {
       Serial.println(F("Radio hardware not responding."));
-      while (1){}
+      while (1)
+      {
+      }
     }
   }
   Serial.println(F("Connected!"));
@@ -87,7 +91,7 @@ void loop()
   mesh.update();
 
   aht20.reset();
-  
+
   // Send to the master node every x seconds
   if (millis() - displayTimer >= (sendPackIntervalSec * 1000))
   {
@@ -97,13 +101,15 @@ void loop()
     // revolutionsAnemometerCount = 0;
 
     overflow_count += 5;
-    if(overflow_count >= 60){
-      packet.windSpeed = 0.1*(conversionRatio * revolutionsAnemometerCount);
+    if (overflow_count >= 60)
+    {
+      packet.windSpeed = 0.1 * (conversionRatio * revolutionsAnemometerCount);
       overflow_count = 0;
       revolutionsAnemometerCount = 0;
     }
-    
-    if(aht20.startMeasurementReady(true)){
+
+    if (aht20.startMeasurementReady(true))
+    {
       packet.tempC = aht20.getTemperature_C();
       packet.RH = aht20.getHumidity_RH();
     }
@@ -145,6 +151,7 @@ void loop()
   }
 }
 
-ISR(INT0_vect){
+ISR(INT0_vect)
+{
   revolutionsAnemometerCount += 1;
 }
