@@ -12,13 +12,16 @@ DFRobot_AHT20 aht20;
 uint8_t status;
 
 /**** Configure the LPS331AP****/
+
 LPS lps331ap;
 
 /**** Configure the ANEMOMETER****/
+
 volatile int revolutionsAnemometerCount;
 
 int overflow_count = 0;
-float conversionRatio = (2 * PI) / 60;
+const float anemometerMagnetDist = 0.1;
+const float conversionRatio = (2 * PI) / 60;
 
 struct sensorData_t
 {
@@ -97,16 +100,19 @@ void loop()
   {
     displayTimer = millis();
 
-    // packet.windSpeed = 0.1* (conversionRatio * (revolutionsAnemometerCount/(timeInterval/60)));
-    // revolutionsAnemometerCount = 0;
+    // rpm = (revolutionsAnemometerCount / sendPackIntervalSec) * 60;
+    // omega = conversionRatio * rpm;
+    // packet.windSpeed = anemometerMagnetDist * omega;
 
-    overflow_count += 5;
-    if (overflow_count >= 60)
-    {
-      packet.windSpeed = 0.1 * (conversionRatio * revolutionsAnemometerCount);
-      overflow_count = 0;
-      revolutionsAnemometerCount = 0;
-    }
+    packet.windSpeed = anemometerMagnetDist * (conversionRatio * ((revolutionsAnemometerCount / sendPackIntervalSec) * 60));
+
+    // overflow_count += 5;
+    // if (overflow_count >= 60)
+    // {
+    //   packet.windSpeed = 0.1 * (conversionRatio * revolutionsAnemometerCount);
+    //   overflow_count = 0;
+    //   revolutionsAnemometerCount = 0;
+    // }
 
     if (aht20.startMeasurementReady(true))
     {

@@ -5,6 +5,116 @@
 	(uuid "2de267c0-3460-4ea6-9140-c6cfbd374169")
 	(paper "A4")
 	(lib_symbols
+		(symbol "Connector_Generic:Conn_01x01"
+			(pin_names
+				(offset 1.016) hide)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "J"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Conn_01x01"
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "connector"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "Connector*:*_1x??_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "Conn_01x01_1_1"
+				(rectangle
+					(start -1.27 0.127)
+					(end 0 -0.127)
+					(stroke
+						(width 0.1524)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.27 1.27)
+					(end 1.27 -1.27)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+				(pin passive line
+					(at -5.08 0 0)
+					(length 3.81)
+					(name "Pin_1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+		)
 		(symbol "Connector_Generic:Conn_01x03"
 			(pin_names
 				(offset 1.016) hide)
@@ -2193,6 +2303,28 @@
 			)
 		)
 	)
+	(global_label "~{Q}_{h}"
+		(shape input)
+		(at 67.31 125.73 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "6deb4932-b300-4448-94af-85c6cc11196f")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 72.5957 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
 	(global_label "South"
 		(shape input)
 		(at 118.11 128.27 0)
@@ -2272,6 +2404,28 @@
 		(uuid "7b0a4b3f-503c-44b0-8079-b71065a6ea6a")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
 			(at 154.9618 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+	)
+	(global_label "SER"
+		(shape input)
+		(at 67.31 138.43 0)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "849dec67-bb5d-469c-a6ba-d50637bd0391")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 73.9237 138.43 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2855,7 +3009,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 164.338 63.5 90)
 			(effects
 				(font
@@ -2922,7 +3076,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 195.8848 91.44 0)
 			(effects
 				(font
@@ -2973,7 +3127,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "138175d9-fce7-4885-8354-3b2e7e5cfbbc")
-		(property "Reference" "SouthEast"
+		(property "Reference" "SouthEast1"
 			(at 200.914 51.308 90)
 			(effects
 				(font
@@ -3031,7 +3185,7 @@
 		(instances
 			(project "windVane"
 				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
-					(reference "SouthEast")
+					(reference "SouthEast1")
 					(unit 1)
 				)
 			)
@@ -3065,7 +3219,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 90.678 63.5 90)
 			(effects
 				(font
@@ -3132,7 +3286,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 84.1248 91.44 0)
 			(effects
 				(font
@@ -3202,7 +3356,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 91.948 95.25 90)
 			(effects
 				(font
@@ -3345,7 +3499,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 202.438 63.5 90)
 			(effects
 				(font
@@ -3415,7 +3569,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 130.048 95.25 90)
 			(effects
 				(font
@@ -3482,8 +3636,8 @@
 				)
 			)
 		)
-		(property "Footprint" ""
-			(at 82.8548 59.69 0)
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
+			(at 62.738 64.008 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3533,7 +3687,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "8a7023d1-cd34-465b-9db6-be5c782f1b62")
-		(property "Reference" "NorthWest"
+		(property "Reference" "NorthWest1"
 			(at 202.184 83.058 90)
 			(effects
 				(font
@@ -3591,7 +3745,7 @@
 		(instances
 			(project "windVane"
 				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
-					(reference "NorthWest")
+					(reference "NorthWest1")
 					(unit 1)
 				)
 			)
@@ -3606,7 +3760,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "8f9d78f7-1b0f-425a-af50-552ca447e44d")
-		(property "Reference" "South"
+		(property "Reference" "South1"
 			(at 90.424 83.058 90)
 			(effects
 				(font
@@ -3664,7 +3818,73 @@
 		(instances
 			(project "windVane"
 				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
-					(reference "South")
+					(reference "South1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Connector_Generic:Conn_01x01")
+		(at 62.23 138.43 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "9067708c-5de4-4f03-b76a-9afa08e2a780")
+		(property "Reference" "J2"
+			(at 62.23 132.08 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_01x01"
+			(at 62.23 134.62 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
+			(at 62.23 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 62.23 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 62.23 138.43 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "f78b0606-6c79-4df9-abe5-da88c2eaf768")
+		)
+		(instances
+			(project "windVane"
+				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
+					(reference "J2")
 					(unit 1)
 				)
 			)
@@ -3698,7 +3918,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 165.608 95.25 90)
 			(effects
 				(font
@@ -3838,7 +4058,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 194.6148 59.69 0)
 			(effects
 				(font
@@ -3889,7 +4109,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "ae77677b-ed9f-47fa-a9bc-382aadbfbfbc")
-		(property "Reference" "East"
+		(property "Reference" "East1"
 			(at 162.814 51.308 90)
 			(effects
 				(font
@@ -3947,7 +4167,7 @@
 		(instances
 			(project "windVane"
 				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
-					(reference "East")
+					(reference "East1")
 					(unit 1)
 				)
 			)
@@ -3962,7 +4182,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "b1944e75-49a8-4cab-902b-07762e37242e")
-		(property "Reference" "West"
+		(property "Reference" "West1"
 			(at 164.084 83.058 90)
 			(effects
 				(font
@@ -4020,7 +4240,7 @@
 		(instances
 			(project "windVane"
 				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
-					(reference "West")
+					(reference "West1")
 					(unit 1)
 				)
 			)
@@ -4164,7 +4384,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 128.778 63.5 90)
 			(effects
 				(font
@@ -4234,7 +4454,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
 			(at 203.708 95.25 90)
 			(effects
 				(font
@@ -4277,6 +4497,72 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector_Generic:Conn_01x01")
+		(at 62.23 125.73 0)
+		(mirror y)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "cae97d23-3c3b-4cb7-af3b-8efeef554209")
+		(property "Reference" "J1"
+			(at 62.23 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Conn_01x01"
+			(at 62.23 121.92 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x01_P2.54mm_Vertical"
+			(at 62.23 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 62.23 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
+			(at 62.23 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "39d45f17-a23f-4ad5-9a3d-a73821347d31")
+		)
+		(instances
+			(project ""
+				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
+					(reference "J1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Connector_Generic:Conn_01x03")
 		(at 125.73 86.36 90)
 		(unit 1)
@@ -4285,7 +4571,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "cbaef8f6-a768-40ac-82f3-c2b72abad961")
-		(property "Reference" "SouthWest"
+		(property "Reference" "SouthWest1"
 			(at 128.524 83.058 90)
 			(effects
 				(font
@@ -4343,7 +4629,7 @@
 		(instances
 			(project "windVane"
 				(path "/2de267c0-3460-4ea6-9140-c6cfbd374169"
-					(reference "SouthWest")
+					(reference "SouthWest1")
 					(unit 1)
 				)
 			)
@@ -4455,7 +4741,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 156.5148 59.69 0)
 			(effects
 				(font
@@ -4522,7 +4808,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 157.7848 91.44 0)
 			(effects
 				(font
@@ -4589,7 +4875,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 122.2248 91.44 0)
 			(effects
 				(font
@@ -4656,7 +4942,7 @@
 				)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Capacitor_SMD:C_0402_1005Metric"
 			(at 120.9548 59.69 0)
 			(effects
 				(font
