@@ -20,7 +20,7 @@ LPS lps331ap;
 volatile int revolutionsAnemometerCount;
 
 int overflow_count = 0;
-const float anemometerMagnetDist = 0.1;
+const float anemometerArmDistMetres = 0.1;
 const float conversionRatio = (2 * PI) / 60;
 
 struct sensorData_t
@@ -102,9 +102,9 @@ void loop()
 
     // rpm = (revolutionsAnemometerCount / sendPackIntervalSec) * 60;
     // omega = conversionRatio * rpm;
-    // packet.windSpeed = anemometerMagnetDist * omega;
+    // packet.windSpeed = anemometerArmDistMetres * omega;
 
-    packet.windSpeed = anemometerMagnetDist * (conversionRatio * ((revolutionsAnemometerCount / sendPackIntervalSec) * 60));
+    packet.windSpeed = anemometerArmDistMetres * (conversionRatio * ((revolutionsAnemometerCount / sendPackIntervalSec) * 60));
 
     // overflow_count += 5;
     // if (overflow_count >= 60)
