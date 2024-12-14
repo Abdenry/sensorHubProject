@@ -103,8 +103,8 @@ void loop()
     // rpm = (revolutionsAnemometerCount / sendPackIntervalSec) * 60;
     // omega = conversionRatio * rpm;
     // packet.windSpeed = anemometerArmDistMetres * omega;
-
-    packet.windSpeed = anemometerArmDistMetres * (conversionRatio * ((revolutionsAnemometerCount / sendPackIntervalSec) * 60));
+    packet.windSpeed = anemometerArmDistMetres * (conversionRatio * (((float)revolutionsAnemometerCount / (float)sendPackIntervalSec) * (float)60));
+    revolutionsAnemometerCount = 0;
 
     // overflow_count += 5;
     // if (overflow_count >= 60)
@@ -152,6 +152,8 @@ void loop()
       Serial.print(packet.RH);
       Serial.print(" bar: ");
       Serial.print(packet.bar);
+      Serial.print(" Wind Speed: ");
+      Serial.print(packet.windSpeed);
       Serial.println();
     }
   }
