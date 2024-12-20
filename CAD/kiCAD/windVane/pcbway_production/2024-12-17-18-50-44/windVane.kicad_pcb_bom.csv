@@ -1,0 +1,7 @@
+﻿Designator,Quantity,Value,Footprint,Package,MPN,DNP,Mount_Type,Description
+"C1, C2, C3, C4, C5, C6, C7, C8",8,100nF,C_0402_1005Metric,,,,smt,Unpolarized capacitor
+"East1, North1, NorthEast1, NorthWest1, South1, SouthEast1, SouthWest1, West1",8,Conn_01x03,PinHeader_1x03_P2.54mm_Vertical,,,,tht,"Generic connector, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)"
+"J1, J2",2,Conn_01x01,PinHeader_1x01_P2.54mm_Vertical,,,,tht,"Generic connector, single row, 01x01, script generated (kicad-library-utils/schlib/autogen/connector/)"
+"R1, R2, R3, R4, R5, R6, R7, R8",8,10k,R_0402_1005Metric,,,,smt,Resistor
+SIG1,1,Conn_01x06,PinHeader_1x06_P2.54mm_Vertical,,,,tht,"Generic connector, single row, 01x06, script generated (kicad-library-utils/schlib/autogen/connector/)"
+SN74HC165,1,Conn_02x08_Counter_Clockwise,DIP-16_W7.62mm,,,,tht,"Generic connector, double row, 02x08, counter clockwise pin numbering scheme (similar to DIP package numbering), script generated (kicad-library-utils/schlib/autogen/connector/)"
