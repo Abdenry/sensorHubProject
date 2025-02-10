@@ -33,6 +33,7 @@ struct sensorData_t
 
 void setup()
 {
+  Serial.print("Starting Setup... ");
   /**** Configure the ANEMOMETER****/
   DDRD &= ~(1 << 2);
   PORTD |= (1 << 2);
@@ -46,20 +47,20 @@ void setup()
   }
   Wire.begin();
 
-  while ((status = aht20.begin()) != 0)
-  {
-    Serial.print("AHT20 Sensor init failed. error status: ");
-    Serial.println(status);
-    delay(1000);
-  }
+  // while ((status = aht20.begin()) != 0)
+  // {
+  //   Serial.print("AHT20 Sensor init failed. error status: ");
+  //   Serial.println(status);
+  //   delay(1000);
+  // }
 
-  if (!lps331ap.init())
-  {
-    Serial.println("Failed to autodetect pressure sensor!");
-    while (1)
-      ;
-  }
-  lps331ap.enableDefault();
+  // if (!lps331ap.init())
+  // {
+  //   Serial.println("Failed to autodetect pressure sensor!");
+  //   while (1)
+  //     ;
+  // }
+  // lps331ap.enableDefault();
 
   mesh.setNodeID(nodeID);
   radio.begin();
@@ -93,7 +94,7 @@ void loop()
 
   mesh.update();
 
-  aht20.reset();
+  // aht20.reset();
 
   // Send to the master node every x seconds
   if (millis() - displayTimer >= (sendPackIntervalSec * 1000))
@@ -114,14 +115,18 @@ void loop()
     //   revolutionsAnemometerCount = 0;
     // }
 
-    if (aht20.startMeasurementReady(true))
-    {
-      packet.tempC = aht20.getTemperature_C();
-      packet.RH = aht20.getHumidity_RH();
-    }
+    // if (aht20.startMeasurementReady(true))
+    // {
+    //   packet.tempC = aht20.getTemperature_C();
+    //   packet.RH = aht20.getHumidity_RH();
+    // }
 
-    float mBar = lps331ap.readPressureMillibars();
-    packet.bar = mBar / 1000;
+    packet.tempC = 0;
+    packet.RH = 0;
+
+    // float mBar = lps331ap.readPressureMillibars();
+    // packet.bar = mBar / 1000;
+    packet.bar = 0;
 
     // Send an 'M' type message containing the current millis()
     if (!mesh.write(&packet, 'M', sizeof(packet)))
