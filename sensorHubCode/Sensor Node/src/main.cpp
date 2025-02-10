@@ -1,6 +1,9 @@
 #include <main.h>
 #define sendPackIntervalSec 5
 
+bool initAHT20 = true;
+bool initLSP = true;
+
 /**** Configure the nrf24l01 CE and CS pins ****/
 RF24 radio(CE, CS);
 RF24Network network(radio);
@@ -33,35 +36,35 @@ struct sensorData_t
 
 void setup()
 {
-  Serial.print("Starting Setup... ");
+  
   /**** Configure the ANEMOMETER****/
   DDRD &= ~(1 << 2);
   PORTD |= (1 << 2);
 
   EICRA |= (1 << ISC01);
   EIMSK |= (1 << INT0);
-
+  
   Serial.begin(115200);
   while (!Serial)
   {
   }
-  Wire.begin();
 
-  // while ((status = aht20.begin()) != 0)
-  // {
-  //   Serial.print("AHT20 Sensor init failed. error status: ");
-  //   Serial.println(status);
-  //   delay(1000);
-  // }
+  if ((status = aht20.begin()) != 0)
+  {
+    Serial.print("AHT20 Sensor init failed. error status: ");
+    Serial.println(status);
+    initAHT20 = false;
+  }
 
-  // if (!lps331ap.init())
-  // {
-  //   Serial.println("Failed to autodetect pressure sensor!");
-  //   while (1)
-  //     ;
-  // }
-  // lps331ap.enableDefault();
-
+  if (!lps331ap.init())
+  {
+    Serial.println("Failed to autodetect pressure sensor!");
+    initLSP = false;
+  }
+  if(initLSP){
+    lps331ap.enableDefault();
+  }
+  
   mesh.setNodeID(nodeID);
   radio.begin();
   radio.setPALevel(RF24_PA_MIN, 0);
@@ -93,41 +96,35 @@ void loop()
 {
 
   mesh.update();
-
-  // aht20.reset();
+  
+  
+  if(initAHT20){
+    aht20.reset();
+  }
 
   // Send to the master node every x seconds
   if (millis() - displayTimer >= (sendPackIntervalSec * 1000))
   {
     displayTimer = millis();
 
-    // rpm = (revolutionsAnemometerCount / sendPackIntervalSec) * 60;
-    // omega = conversionRatio * rpm;
-    // packet.windSpeed = anemometerArmDistMetres * omega;
     packet.windSpeed = anemometerArmDistMetres * (conversionRatio * (((float)revolutionsAnemometerCount / (float)sendPackIntervalSec) * (float)60));
     revolutionsAnemometerCount = 0;
-
-    // overflow_count += 5;
-    // if (overflow_count >= 60)
-    // {
-    //   packet.windSpeed = 0.1 * (conversionRatio * revolutionsAnemometerCount);
-    //   overflow_count = 0;
-    //   revolutionsAnemometerCount = 0;
-    // }
-
-    // if (aht20.startMeasurementReady(true))
-    // {
-    //   packet.tempC = aht20.getTemperature_C();
-    //   packet.RH = aht20.getHumidity_RH();
-    // }
-
-    packet.tempC = 0;
-    packet.RH = 0;
-
-    // float mBar = lps331ap.readPressureMillibars();
-    // packet.bar = mBar / 1000;
-    packet.bar = 0;
-
+    
+    if(aht20.startMeasurementReady(true)){
+      packet.tempC = aht20.getTemperature_C();
+      packet.RH = aht20.getHumidity_RH();
+    }else{
+      packet.tempC = 0;
+      packet.RH = 0;
+    }
+    
+    if(initLSP){
+      float mBar = lps331ap.readPressureMillibars();
+      packet.bar = mBar / 1000;
+    }else{
+      packet.bar = 0;
+    }
+    
     // Send an 'M' type message containing the current millis()
     if (!mesh.write(&packet, 'M', sizeof(packet)))
     {
