@@ -10,3 +10,5 @@
 #define CE 9
 #define CS 10
 #define nodeID 4
+
+void sendPacket(const void* packet, uint8_t msg_type, size_t packetSize);
