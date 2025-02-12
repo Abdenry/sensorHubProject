@@ -1,8 +1,8 @@
 #include <main.h>
 #define sendPackIntervalSec 5
 
-bool initAHT20 = true;
-bool initLSP = true;
+// bool initAHT20 = true;
+// bool initLSP = true;
 
 /**** Configure the nrf24l01 CE and CS pins ****/
 RF24 radio(CE, CS);
@@ -22,21 +22,19 @@ LPS lps331ap;
 
 volatile int revolutionsAnemometerCount;
 
-int overflow_count = 0;
-const float anemometerArmDistMetres = 0.1;
-const float conversionRatio = (2 * PI) / 60;
 
-struct sensorData_t
-{
-  float tempC = 0;
-  float RH = 0;
-  float bar;
-  float windSpeed = 0;
-} packet;
+
+sensorData_t packet = { 
+  .initAHT20 = true, 
+  .aht20tempC = 0.0f, 
+  .aht20RH = 0.0f, 
+  .initLSP = true, 
+  .lspBar = 0.0f, 
+  .windSpeed = 0.0f
+};
 
 void setup()
 {
-
   /**** Configure the ANEMOMETER****/
   DDRD &= ~(1 << 2);
   PORTD |= (1 << 2);
@@ -45,24 +43,20 @@ void setup()
   EIMSK |= (1 << INT0);
 
   Serial.begin(115200);
-  while (!Serial)
-  {
-  }
+  while (!Serial){}
 
   if ((status = aht20.begin()) != 0)
   {
     Serial.print("AHT20 Sensor init failed. error status: ");
     Serial.println(status);
-    initAHT20 = false;
+    packet.initAHT20 = false;
   }
 
   if (!lps331ap.init())
   {
     Serial.println("Failed to autodetect pressure sensor!");
-    initLSP = false;
-  }
-  if (initLSP)
-  {
+    packet.initLSP = false;
+  }else{
     lps331ap.enableDefault();
   }
 
@@ -96,38 +90,37 @@ void setup()
 void loop()
 {
   mesh.update();
-  if (initAHT20)
+
+  if (packet.initAHT20)
   {
     aht20.reset();
   }
+
   // Send to the master node every x seconds
   if (millis() - displayTimer >= (sendPackIntervalSec * 1000))
   {
     displayTimer = millis();
-    packet.windSpeed = anemometerArmDistMetres * (conversionRatio * (((float)revolutionsAnemometerCount / (float)sendPackIntervalSec) * (float)60));
-    revolutionsAnemometerCount = 0;
-    if (initAHT20)
-    {
-      if (aht20.startMeasurementReady(true))
-      {
-        packet.tempC = aht20.getTemperature_C();
-        packet.RH = aht20.getHumidity_RH();
-      }
-    }
-    else
-    {
-      packet.tempC = 0;
-      packet.RH = 0;
-    }
 
-    if (initLSP)
+    getWindspeed(anemometerArmDistMetres, conversionRatio, &revolutionsAnemometerCount);
+    getAHT20Data(&packet, aht20);
+    // if (initAHT20)
+    // {
+    //   if (aht20.startMeasurementReady(true))
+    //   {
+    //     packet.tempC = aht20.getTemperature_C();
+    //     packet.RH = aht20.getHumidity_RH();
+    //   }
+    // }else{
+    //   packet.tempC = 0;
+    //   packet.RH = 0;
+    // }
+
+    if (packet.initLSP)
     {
       float mBar = lps331ap.readPressureMillibars();
-      packet.bar = mBar / 1000;
-    }
-    else
-    {
-      packet.bar = 0;
+      packet.lspBar = mBar / 1000;
+    }else{
+      packet.lspBar = 0;
     }
 
     sendPacket(&packet, 77, sizeof(packet));
@@ -160,6 +153,27 @@ void sendPacket(const void *packet, uint8_t msg_type, size_t packetSize)
     Serial.print("Packet sent!\n");
   }
 }
+
+void getWindspeed(float anemometerArmDistMetres, float conversionRatio, volatile int* revolutionsAnemometerCount){
+  // packet.windSpeed = anemometerArmDistMetres * (conversionRatio * (((float)revolutionsAnemometerCount / (float)sendPackIntervalSec) * (float)60));
+  // revolutionsAnemometerCount = 0;
+  float speed = anemometerArmDistMetres * (conversionRatio * (((float)*revolutionsAnemometerCount / (float)sendPackIntervalSec) * (float)60));
+  *revolutionsAnemometerCount = 0;
+  packet.windSpeed = speed;
+}
+
+void getAHT20Data(sensorData_t *packet, DFRobot_AHT20 aht20){
+  if (packet->initAHT20){
+      if (aht20.startMeasurementReady(true))
+      {
+        packet->aht20tempC = aht20.getTemperature_C();
+        packet->aht20RH = aht20.getHumidity_RH();
+      }
+    }else{
+      packet->aht20tempC = 0;
+      packet->aht20RH = 0;
+    }
+  }
 
 ISR(INT0_vect)
 {
