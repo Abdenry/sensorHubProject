@@ -24,9 +24,16 @@ const float conversionRatio = (2 * PI) / 60;
 //     float windSpeed;
 // } sensorData_t;
 
+typedef struct sensorData_t
+{
+  float tempC;
+  float RH;
+  float bar;
+  float windSpeed;
+}sensorData_t;
 
 void sendPacket(const void* packet, uint8_t msg_type, size_t packetSize);
 
 void getWindspeed(float anemometerArmDistMetres, float conversionRatio, volatile int* revolutionsAnemometerCount);
 
-// void getAHT20Data(sensorData_t *packet, DFRobot_AHT20 aht20);
+void getAHT20Data(sensorData_t *packet, DFRobot_AHT20 aht20);

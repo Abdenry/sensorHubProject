@@ -22,24 +22,7 @@ LPS lps331ap;
 
 volatile int revolutionsAnemometerCount;
 
-
-
-// sensorData_t packet = { 
-//   .initAHT20 = true, 
-//   .aht20tempC = 0.0f, 
-//   .aht20RH = 0.0f, 
-//   .initLSP = true, 
-//   .lspBar = 0.0f, 
-//   .windSpeed = 0.0f
-// };
-
-struct sensorData_t
-{
-  float tempC = 0;
-  float RH = 0;
-  float bar;
-  float windSpeed = 0;
-} packet;
+sensorData_t packet = {0,0,0,0};
 
 void setup()
 {
@@ -57,14 +40,12 @@ void setup()
   {
     Serial.print("AHT20 Sensor init failed. error status: ");
     Serial.println(status);
-    // packet.initAHT20 = false;
     initAHT20 = false;
   }
 
   if (!lps331ap.init())
   {
     Serial.println("Failed to autodetect pressure sensor!");
-    // packet.initLSP = false;
     initLSP = false;
   }else{
     lps331ap.enableDefault();
@@ -93,6 +74,7 @@ void setup()
       }
     }
   }
+  
   Serial.println(F("Connected!"));
   sei();
 }
@@ -112,18 +94,7 @@ void loop()
     displayTimer = millis();
 
     getWindspeed(anemometerArmDistMetres, conversionRatio, &revolutionsAnemometerCount);
-    // getAHT20Data(&packet, aht20);
-    if (initAHT20)
-    {
-      if (aht20.startMeasurementReady(true))
-      {
-        packet.tempC = aht20.getTemperature_C();
-        packet.RH = aht20.getHumidity_RH();
-      }
-    }else{
-      packet.tempC = 0;
-      packet.RH = 0;
-    }
+    getAHT20Data(&packet, aht20);
 
     if (initLSP)
     {
@@ -165,27 +136,23 @@ void sendPacket(const void *packet, uint8_t msg_type, size_t packetSize)
 }
 
 void getWindspeed(float anemometerArmDistMetres, float conversionRatio, volatile int* revolutionsAnemometerCount){
-  // packet.windSpeed = anemometerArmDistMetres * (conversionRatio * (((float)revolutionsAnemometerCount / (float)sendPackIntervalSec) * (float)60));
-  // revolutionsAnemometerCount = 0;
   float speed = anemometerArmDistMetres * (conversionRatio * (((float)*revolutionsAnemometerCount / (float)sendPackIntervalSec) * (float)60));
-  Serial.println(*revolutionsAnemometerCount);
   *revolutionsAnemometerCount = 0;
   packet.windSpeed = speed;
-  Serial.println(packet.windSpeed);
 }
 
-// void getAHT20Data(sensorData_t *packet, DFRobot_AHT20 aht20){
-//   if (packet->initAHT20){
-//       if (aht20.startMeasurementReady(true))
-//       {
-//         packet->aht20tempC = aht20.getTemperature_C();
-//         packet->aht20RH = aht20.getHumidity_RH();
-//       }
-//     }else{
-//       packet->aht20tempC = 0;
-//       packet->aht20RH = 0;
-//     }
-//   }
+void getAHT20Data(sensorData_t *packet, DFRobot_AHT20 aht20){
+  if (initAHT20){
+      if (aht20.startMeasurementReady(true))
+      {
+        packet->tempC= aht20.getTemperature_C();
+        packet->RH = aht20.getHumidity_RH();
+      }
+    }else{
+      packet->tempC = 0;
+      packet->RH = 0;
+    }
+  }
 
 ISR(INT0_vect)
 {
