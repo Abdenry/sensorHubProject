@@ -37,3 +37,5 @@ void sendPacket(const void* packet, uint8_t msg_type, size_t packetSize);
 void getWindspeed(float anemometerArmDistMetres, float conversionRatio, volatile int* revolutionsAnemometerCount);
 
 void getAHT20Data(sensorData_t *packet, DFRobot_AHT20 aht20);
+
+void getlsp331AP(sensorData_t *packet, LPS lps331ap);

@@ -95,15 +95,7 @@ void loop()
 
     getWindspeed(anemometerArmDistMetres, conversionRatio, &revolutionsAnemometerCount);
     getAHT20Data(&packet, aht20);
-
-    if (initLSP)
-    {
-      float mBar = lps331ap.readPressureMillibars();
-      packet.bar = mBar / 1000;
-    }else{
-      packet.bar = 0;
-    }
-
+    getlsp331AP(&packet, lps331ap);
     sendPacket(&packet, 77, sizeof(packet));
   }
 }
@@ -151,6 +143,16 @@ void getAHT20Data(sensorData_t *packet, DFRobot_AHT20 aht20){
     }else{
       packet->tempC = 0;
       packet->RH = 0;
+    }
+  }
+
+  void getlsp331AP(sensorData_t *packet, LPS lps331ap){
+    if (initLSP)
+    {
+      float mBar = lps331ap.readPressureMillibars();
+      packet->bar = mBar / 1000;
+    }else{
+      packet->bar = 0;
     }
   }
 
