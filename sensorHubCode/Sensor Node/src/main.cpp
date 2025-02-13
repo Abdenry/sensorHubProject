@@ -93,14 +93,14 @@ void loop()
   {
     displayTimer = millis();
 
-    getWindspeed(anemometerArmDistMetres, conversionRatio, &revolutionsAnemometerCount);
+    getWindspeed(&packet, anemometerArmDistMetres, conversionRatio, &revolutionsAnemometerCount);
     getAHT20Data(&packet, aht20);
     getlsp331AP(&packet, lps331ap);
     sendPacket(&packet, 77, sizeof(packet));
   }
 }
 
-void sendPacket(const void *packet, uint8_t msg_type, size_t packetSize)
+void sendPacket(sensorData_t *packet, uint8_t msg_type, size_t packetSize)
 {
   if (!mesh.write(packet, msg_type, packetSize))
   {
@@ -127,10 +127,10 @@ void sendPacket(const void *packet, uint8_t msg_type, size_t packetSize)
   }
 }
 
-void getWindspeed(float anemometerArmDistMetres, float conversionRatio, volatile int* revolutionsAnemometerCount){
+void getWindspeed(sensorData_t *packet, float anemometerArmDistMetres, float conversionRatio, volatile int* revolutionsAnemometerCount){
   float speed = anemometerArmDistMetres * (conversionRatio * (((float)*revolutionsAnemometerCount / (float)sendPackIntervalSec) * (float)60));
   *revolutionsAnemometerCount = 0;
-  packet.windSpeed = speed;
+  packet->windSpeed = speed;
 }
 
 void getAHT20Data(sensorData_t *packet, DFRobot_AHT20 aht20){

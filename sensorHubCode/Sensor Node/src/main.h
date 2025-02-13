@@ -32,9 +32,9 @@ typedef struct sensorData_t
   float windSpeed;
 }sensorData_t;
 
-void sendPacket(const void* packet, uint8_t msg_type, size_t packetSize);
+void sendPacket(sensorData_t *packet, uint8_t msg_type, size_t packetSize);
 
-void getWindspeed(float anemometerArmDistMetres, float conversionRatio, volatile int* revolutionsAnemometerCount);
+void getWindspeed(sensorData_t *packet, float anemometerArmDistMetres, float conversionRatio, volatile int* revolutionsAnemometerCount);
 
 void getAHT20Data(sensorData_t *packet, DFRobot_AHT20 aht20);
 

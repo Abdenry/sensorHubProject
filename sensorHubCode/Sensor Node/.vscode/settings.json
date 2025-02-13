@@ -2,5 +2,6 @@
   "cmake.sourceDirectory": "C:/Users/Hiro/Documents/_PROJECTS_/sensorHub/sensorHubCode/lib/RF24",
   "files.associations": {
     "wire_timeout.h": "c"
-  }
+  },
+  "cmake.ignoreCMakeListsMissing": true
 }
