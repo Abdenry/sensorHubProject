@@ -12,12 +12,13 @@ RF24 radio(22,0);
 RF24Network network(radio);
 RF24Mesh mesh(radio, network);
 
-struct sensorData_t{
-        float tempC = 0;
-        float RH = 0;
-        float bar = 0;
-        float windSpeed = 0;
-};
+typedef struct sensorData_t{
+    //int test;
+        float tempC;
+        float RH;
+        float bar;
+        float windSpeed;
+}sensorData_t;
 
 int main(int argc, char** argv){
         const char *metricNames[] = {"Temperature", "Relative Humidity", "Pressure", "Wind Speed"};
@@ -43,7 +44,7 @@ int main(int argc, char** argv){
         printf("Start\n");
         radio.printDetails();
 
-        sensorData_t packet;
+        sensorData_t packet = {0,0,0,0};
         float* metrics[] = {&packet.tempC, &packet.RH, &packet.bar, &packet.windSpeed};
 
         while(1){
@@ -60,7 +61,7 @@ int main(int argc, char** argv){
                         switch(header.type){
                                 case 'M':
                                         network.read(header, &packet, sizeof(packet));
-                                        printf("RCV temp_c: %f RH: %f bar: %f wind speed: %f from 0%o at UTC time: %s\n", packet.tempC,packet.RH, packet.bar, packet.windSpeed, header.from_node, timeSTR);
+                                        printf("RCV temp_c: %.2f RH: %.2f bar: %.2f wind speed: %.2f from 0%o at UTC time: %s\n", packet.tempC,packet.RH, packet.bar, packet.windSpeed, header.from_node, timeSTR);
                                         break;
                                 default:
                                         network.read(header, 0, 0);
