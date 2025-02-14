@@ -75,8 +75,10 @@ int main(int argc, char** argv){
                                     continue;
                                 }
                                 sendMetric(curl, res, metricNames[i], *metrics[i], timeSTR);
-                                printf("\n");
-                                printf("%s: %.2f\n", metricNames[i], *metrics[i]);
+                                if(res == CURLE_OK){
+                                    printf("\n");
+                                    printf("%s: %.2f\n", metricNames[i], *metrics[i]);
+                                }
                             }
                             printf("\n");
                     }
