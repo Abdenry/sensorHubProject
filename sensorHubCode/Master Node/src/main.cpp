@@ -62,7 +62,7 @@ int main(int argc, char** argv){
                         switch(header.type){
                                 case 'M':
                                         network.read(header, &packet, sizeof(packet));
-                                        printf("RCV temp_c: %.2f RH: %.2f bar: %.2f wind speed: %.2f from 0%o at UTC time: %s\n", packet.tempC,packet.RH, packet.bar, packet.windSpeed, header.from_node, timeSTR);
+                                        //printf("RCV temp_c: %.2f RH: %.2f bar: %.2f wind speed: %.2f from 0%o at UTC time: %s\n", packet.tempC,packet.RH, packet.bar, packet.windSpeed, header.from_node, timeSTR);
                                         break;
                                 default:
                                         network.read(header, 0, 0);
@@ -76,7 +76,9 @@ int main(int argc, char** argv){
                                 }
                                 sendMetric(curl, res, metricNames[i], *metrics[i], timeSTR);
                                 printf("\n");
+                                printf("%s: %.2f\n", metricNames[i], *metrics[i]);
                             }
+                            printf("\n");
                     }
                 usleep(5000);
         }
