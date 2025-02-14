@@ -13,11 +13,12 @@ RF24Network network(radio);
 RF24Mesh mesh(radio, network);
 
 typedef struct sensorData_t{
-    //int test;
         float tempC;
         float RH;
         float bar;
         float windSpeed;
+        char initAHT20;
+        char initLSP;
 }sensorData_t;
 
 int main(int argc, char** argv){
@@ -44,7 +45,7 @@ int main(int argc, char** argv){
         printf("Start\n");
         radio.printDetails();
 
-        sensorData_t packet = {0,0,0,0};
+        sensorData_t packet = {0,0,0,0,1,1};
         float* metrics[] = {&packet.tempC, &packet.RH, &packet.bar, &packet.windSpeed};
 
         while(1){
@@ -67,13 +68,16 @@ int main(int argc, char** argv){
                                         network.read(header, 0, 0);
                                         printf("Rcv bad type %d from 0%o\n", header.type, header.from_node);
                                         break;
-                        }
-                        for(int i = 0; i < numberOfMetrics; i++){
+                        }                
+
+                            for(int i = 0; i < numberOfMetrics; i++){
+                                if((((metricNames[i] == "Temperature") || (metricNames[i] == "Relative Humidity")) && (packet.initAHT20 == 0)) || ((metricNames[i] == "Pressure") && (packet.initLSP == 0))){
+                                    continue;
+                                }
                                 sendMetric(curl, res, metricNames[i], *metrics[i], timeSTR);
                                 printf("\n");
-                                // printf("%f\n", *metrics[i]);
-                        }
-                }
+                            }
+                    }
                 usleep(5000);
         }
         return 0;
