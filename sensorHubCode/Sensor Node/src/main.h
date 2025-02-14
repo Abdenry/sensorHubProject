@@ -30,6 +30,8 @@ typedef struct sensorData_t
   float RH;
   float bar;
   float windSpeed;
+  char initAHT20;
+  char initLSP;
 }sensorData_t;
 
 void sendPacket(sensorData_t *packet, uint8_t msg_type, size_t packetSize);

@@ -22,7 +22,7 @@ LPS lps331ap;
 
 volatile int revolutionsAnemometerCount;
 
-sensorData_t packet = {0,0,0,0};
+sensorData_t packet = {0,0,0,0,1,1};
 
 void setup()
 {
@@ -40,13 +40,13 @@ void setup()
   {
     Serial.print("AHT20 Sensor init failed. error status: ");
     Serial.println(status);
-    initAHT20 = false;
+    packet.initAHT20 = 0;
   }
 
   if (!lps331ap.init())
   {
     Serial.println("Failed to autodetect pressure sensor!");
-    initLSP = false;
+    packet.initLSP = 0;
   }else{
     lps331ap.enableDefault();
   }
@@ -83,19 +83,22 @@ void loop()
 {
   mesh.update();
 
-  if (initAHT20)
-  {
-    aht20.reset();
-  }
-
   // Send to the master node every x seconds
   if (millis() - displayTimer >= (sendPackIntervalSec * 1000))
   {
     displayTimer = millis();
 
     getWindspeed(&packet, anemometerArmDistMetres, conversionRatio, &revolutionsAnemometerCount);
-    getAHT20Data(&packet, aht20);
-    getlsp331AP(&packet, lps331ap);
+    
+    if(packet.initAHT20){
+      aht20.reset();
+      getAHT20Data(&packet, aht20);
+    }
+
+    if(packet.initLSP){
+      getlsp331AP(&packet, lps331ap);
+    }
+
     sendPacket(&packet, 77, sizeof(packet));
   }
 }
@@ -134,27 +137,17 @@ void getWindspeed(sensorData_t *packet, float anemometerArmDistMetres, float con
 }
 
 void getAHT20Data(sensorData_t *packet, DFRobot_AHT20 aht20){
-  if (initAHT20){
-      if (aht20.startMeasurementReady(true))
-      {
-        packet->tempC= aht20.getTemperature_C();
-        packet->RH = aht20.getHumidity_RH();
-      }
-    }else{
-      packet->tempC = 0;
-      packet->RH = 0;
-    }
+  if (aht20.startMeasurementReady(true))
+  {
+    packet->tempC= aht20.getTemperature_C();
+    packet->RH = aht20.getHumidity_RH();
   }
+}
 
-  void getlsp331AP(sensorData_t *packet, LPS lps331ap){
-    if (initLSP)
-    {
-      float mBar = lps331ap.readPressureMillibars();
-      packet->bar = mBar / 1000;
-    }else{
-      packet->bar = 0;
-    }
-  }
+void getlsp331AP(sensorData_t *packet, LPS lps331ap){
+  float mBar = lps331ap.readPressureMillibars();
+  packet->bar = mBar / 1000;
+}
 
 ISR(INT0_vect)
 {
