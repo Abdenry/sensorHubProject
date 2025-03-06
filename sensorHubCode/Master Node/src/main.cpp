@@ -15,14 +15,13 @@ RF24Mesh mesh(radio, network);
 typedef struct sensorData_t{
         float tempC;
         float RH;
-        float bar;
+        float heatIndex;
         float windSpeed;
-        char initAHT20;
-        char initLSP;
+        char initAHT22;
 }sensorData_t;
 
 int main(int argc, char** argv){
-        const char *metricNames[] = {"Temperature", "Relative Humidity", "Pressure", "Wind Speed"};
+        const char *metricNames[] = {"Temperature", "Relative Humidity", "Heat Index", "Wind Speed"};
         int numberOfMetrics = sizeof(metricNames) / sizeof(metricNames[0]);
 
         // RF24
@@ -45,8 +44,8 @@ int main(int argc, char** argv){
         printf("Start\n");
         radio.printDetails();
 
-        sensorData_t packet = {0,0,0,0,1,1};
-        float* metrics[] = {&packet.tempC, &packet.RH, &packet.bar, &packet.windSpeed};
+        sensorData_t packet = {0,0,0,0,1};
+        float* metrics[] = {&packet.tempC, &packet.RH, &packet.heatIndex, &packet.windSpeed};
 
         while(1){
                 mesh.update();
@@ -62,7 +61,7 @@ int main(int argc, char** argv){
                         switch(header.type){
                                 case 'M':
                                         network.read(header, &packet, sizeof(packet));
-                                        //printf("RCV temp_c: %.2f RH: %.2f bar: %.2f wind speed: %.2f from 0%o at UTC time: %s\n", packet.tempC,packet.RH, packet.bar, packet.windSpeed, header.from_node, timeSTR);
+                                        //printf("RCV temp_c: %.2f RH: %.2f heatIndex: %.2f wind speed: %.2f from 0%o at UTC time: %s\n", packet.tempC,packet.RH, packet.heatIndex, packet.windSpeed, header.from_node, timeSTR);
                                         break;
                                 default:
                                         network.read(header, 0, 0);
@@ -71,7 +70,7 @@ int main(int argc, char** argv){
                         }                
 
                             for(int i = 0; i < numberOfMetrics; i++){
-                                if((((metricNames[i] == "Temperature") || (metricNames[i] == "Relative Humidity")) && (packet.initAHT20 == 0)) || ((metricNames[i] == "Pressure") && (packet.initLSP == 0))){
+                                if(((metricNames[i] == "Temperature") || (metricNames[i] == "Relative Humidity") || (metricNames[i] == "Heat Index")) && (packet.initAHT22 == 0)){
                                     continue;
                                 }
                                 sendMetric(curl, res, metricNames[i], *metrics[i], timeSTR);
