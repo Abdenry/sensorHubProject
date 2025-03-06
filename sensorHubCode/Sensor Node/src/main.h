@@ -6,12 +6,16 @@
 #include <SPI.h>
 #include <DFRobot_AHT20.h>
 #include <LPS.h>
+#include <DHT.h>
 #include "Arduino.h"
+
 
 #define F_CPU 16000000UL
 #define CE 9
 #define CS 10
 #define nodeID 4
+#define DHTPIN 8
+#define DHTTYPE DHT22
 
 const float anemometerArmDistMetres = 0.1;
 const float conversionRatio = (2 * PI) / 60;
@@ -20,15 +24,10 @@ typedef struct sensorData_t
 {
   float tempC;
   float RH;
-  float bar;
+  float heatIndex;
   float windSpeed;
-  char initAHT20;
-  char initLSP;
+  char initAHT22;
 }sensorData_t;
-
-void lps331apSetup();
-
-void aht20Setup();
 
 void softwareTimerSetup();
 
@@ -42,7 +41,5 @@ void getWindspeed(sensorData_t *packet, float anemometerArmDistMetres, float con
 
 void getWindDirection(sensorData_t *packet);
 
-void getAHT20Data(sensorData_t *packet, DFRobot_AHT20 aht20);
-
-void getlsp331AP(sensorData_t *packet, LPS lps331ap);
+void getAHT22(sensorData_t *packet, DHT dhtSensor);
 

@@ -1,5 +1,5 @@
 #include <main.h>
-#define sendPackIntervalSec 300
+#define sendPackIntervalSec 5
 volatile int secondsPast = 0;
 
 /**** Radio ****/
@@ -7,19 +7,13 @@ RF24 radio(CE, CS);
 RF24Network network(radio);
 RF24Mesh mesh(radio, network);
 
-/**** AHT20 ****/
-DFRobot_AHT20 aht20;
-uint8_t status;
-bool initAHT20 = true;
-
-/**** LPS331AP ****/
-LPS lps331ap;
-bool initLSP = true;
-
 /**** ANEMOMETER ****/
 volatile int revolutionsAnemometerCount;
 
-sensorData_t packet = {0,0,0,0,1,1};
+/**** DHT22 ****/
+DHT dht(DHTPIN, DHTTYPE);
+
+sensorData_t packet = {0,0,0,0,1};
 
 void setup()
 {
@@ -27,9 +21,8 @@ void setup()
   softwareTimerSetup();
   Serial.begin(115200);
   while (!Serial){}
-  aht20Setup();
-  lps331apSetup();
   radioSetup();
+  dht.begin();
   Serial.println(F("Connected!"));
   sei();
 }
@@ -41,45 +34,14 @@ void loop()
   if (secondsPast >= sendPackIntervalSec)
   {
     getWindspeed(&packet, anemometerArmDistMetres, conversionRatio, &revolutionsAnemometerCount);
-
-    if(packet.initAHT20){
-      aht20.reset();
-      getAHT20Data(&packet, aht20);
-    }
-    
-    if(packet.initLSP){
-      getlsp331AP(&packet, lps331ap);
-    }
-
+    getAHT22(&packet, dht);
+  
     sendPacket(&packet, 77, sizeof(packet));
     secondsPast = 0;
   }
 }
 
 /**** AUXILIARY FUNCTIONS ****/
-
-void lps331apSetup()
-{
-  if (!lps331ap.init())
-  {
-    Serial.println("Failed to autodetect pressure sensor!");
-    packet.initLSP = 0;
-  }
-  else
-  {
-    lps331ap.enableDefault();
-  }
-}
-
-void aht20Setup()
-{
-  if ((status = aht20.begin()) != 0)
-  {
-    Serial.print("AHT20 Sensor init failed. error status: ");
-    Serial.println(status);
-    packet.initAHT20 = 0;
-  }
-}
 
 void softwareTimerSetup()
 {
@@ -160,17 +122,16 @@ void getWindspeed(sensorData_t *packet, float anemometerArmDistMetres, float con
   packet->windSpeed = speed;
 }
 
-void getAHT20Data(sensorData_t *packet, DFRobot_AHT20 aht20){
-  if (aht20.startMeasurementReady(true))
-  {
-    packet->tempC= aht20.getTemperature_C();
-    packet->RH = aht20.getHumidity_RH();
+void getAHT22(sensorData_t *packet, DHT dhtSensor){
+  packet->RH = dhtSensor.readHumidity();
+  packet->tempC = dhtSensor.readTemperature();
+  packet->heatIndex =dhtSensor.computeHeatIndex(false);
+  if (isnan(packet->RH) || isnan(packet->tempC) || isnan(packet->heatIndex)) {
+    Serial.println(F("Failed to read from DHT sensor!"));
+    packet->initAHT22 = false;
+  }else{
+    packet->initAHT22 = true;
   }
-}
-
-void getlsp331AP(sensorData_t *packet, LPS lps331ap){
-  float mBar = lps331ap.readPressureMillibars();
-  packet->bar = mBar / 1000;
 }
 
 ISR(INT0_vect)
