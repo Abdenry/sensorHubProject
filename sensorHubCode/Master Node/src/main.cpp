@@ -18,10 +18,11 @@ typedef struct sensorData_t{
         float heatIndex;
         float windSpeed;
         char initAHT22;
+        uint8_t windDirection;
 }sensorData_t;
 
 int main(int argc, char** argv){
-        const char *metricNames[] = {"Temperature", "Relative Humidity", "Heat Index", "Wind Speed"};
+        const char *metricNames[] = {"Temperature", "Relative Humidity", "Heat Index", "Wind Speed", "Wind Direction"};
         int numberOfMetrics = sizeof(metricNames) / sizeof(metricNames[0]);
 
         // RF24
@@ -44,8 +45,8 @@ int main(int argc, char** argv){
         printf("Start\n");
         radio.printDetails();
 
-        sensorData_t packet = {0,0,0,0,1};
-        float* metrics[] = {&packet.tempC, &packet.RH, &packet.heatIndex, &packet.windSpeed};
+        sensorData_t packet = {0,0,0,0,1,0};
+        float* metrics[] = {&packet.tempC, &packet.RH, &packet.heatIndex, &packet.windSpeed, &packet.windDirection};
 
         while(1){
                 mesh.update();
@@ -61,7 +62,7 @@ int main(int argc, char** argv){
                         switch(header.type){
                                 case 'M':
                                         network.read(header, &packet, sizeof(packet));
-                                        //printf("RCV temp_c: %.2f RH: %.2f heatIndex: %.2f wind speed: %.2f from 0%o at UTC time: %s\n", packet.tempC,packet.RH, packet.heatIndex, packet.windSpeed, header.from_node, timeSTR);
+                                        printf("RCV temp_c: %.2f RH: %.2f heatIndex: %.2f wind speed: %.2f wind direction: %.2f from 0%o at UTC time: %s\n", packet.tempC,packet.RH, packet.heatIndex, packet.windSpeed, packet.windDirection,header.from_node, timeSTR);
                                         break;
                                 default:
                                         network.read(header, 0, 0);

@@ -18,6 +18,7 @@ sensorData_t packet = {0,0,0,0,1};
 void setup()
 {
   anemometerSetup();
+  windVaneSetup();
   softwareTimerSetup();
   Serial.begin(115200);
   while (!Serial){}
@@ -35,7 +36,7 @@ void loop()
   {
     getWindspeed(&packet, anemometerArmDistMetres, conversionRatio, &revolutionsAnemometerCount);
     getAHT22(&packet, dht);
-  
+    getWindDirection(&packet);
     sendPacket(&packet, 77, sizeof(packet));
     secondsPast = 0;
   }
@@ -45,7 +46,6 @@ void loop()
 
 void softwareTimerSetup()
 {
-  /**** Configure the TIMER1****/
   TCCR1A = 0;
   TCCR1B = 0;
   TCCR1B |= (1 << WGM12) | (1 << CS12);
@@ -55,11 +55,16 @@ void softwareTimerSetup()
 
 void anemometerSetup()
 {
-  /**** Configure the ANEMOMETER****/
   DDRD &= ~(1 << 2);
   PORTD |= (1 << 2);
   EICRA |= (1 << ISC01);
   EIMSK |= (1 << INT0);
+}
+
+void windVaneSetup(){
+  DDRD &= ~(1<<Qh);
+  DDRD |= (1<<SHLD) | (1<<CLK) | (1<<CLKINH);
+  PORTD &= ~(1<< CLKINH);
 }
 
 void radioSetup()
@@ -132,6 +137,22 @@ void getAHT22(sensorData_t *packet, DHT dhtSensor){
   }else{
     packet->initAHT22 = true;
   }
+}
+
+void getWindDirection(sensorData_t *packet){
+  uint8_t data = 0;
+  PORTD &= ~(1<<SHLD);
+  delayMicroseconds(1);
+  PORTD |= (1<<SHLD);
+  
+  for(int i = 0; i < 8; i++){
+    PORTD |= (1<<CLK);
+    delayMicroseconds(1);
+    data |= ((PIND & (1 << Qh)) ? 0 : 1) << (7 - i);
+    PORTD &= ~(1<<CLK);
+  }
+  // Serial.print(data);
+  packet->windDirection = data;
 }
 
 ISR(INT0_vect)

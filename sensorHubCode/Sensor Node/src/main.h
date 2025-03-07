@@ -16,6 +16,10 @@
 #define nodeID 4
 #define DHTPIN 8
 #define DHTTYPE DHT22
+#define Qh 4
+#define SHLD 5
+#define CLK 6
+#define CLKINH 7
 
 const float anemometerArmDistMetres = 0.1;
 const float conversionRatio = (2 * PI) / 60;
@@ -27,11 +31,14 @@ typedef struct sensorData_t
   float heatIndex;
   float windSpeed;
   char initAHT22;
+  uint8_t windDirection;
 }sensorData_t;
 
 void softwareTimerSetup();
 
 void anemometerSetup();
+
+void windVaneSetup();
 
 void radioSetup();
 
