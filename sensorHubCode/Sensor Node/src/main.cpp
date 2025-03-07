@@ -13,7 +13,7 @@ volatile int revolutionsAnemometerCount;
 /**** DHT22 ****/
 DHT dht(DHTPIN, DHTTYPE);
 
-sensorData_t packet = {0,0,0,0,1};
+sensorData_t packet = {0,0,0,0,0,1};
 
 void setup()
 {
@@ -151,8 +151,9 @@ void getWindDirection(sensorData_t *packet){
     data |= ((PIND & (1 << Qh)) ? 0 : 1) << (7 - i);
     PORTD &= ~(1<<CLK);
   }
-  // Serial.print(data);
-  packet->windDirection = data;
+  Serial.println(data);
+  Serial.println((float)data);
+  packet->windDirection = (float)data;
 }
 
 ISR(INT0_vect)

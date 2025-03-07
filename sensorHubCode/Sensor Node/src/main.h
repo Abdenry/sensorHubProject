@@ -30,8 +30,8 @@ typedef struct sensorData_t
   float RH;
   float heatIndex;
   float windSpeed;
+  float windDirection;
   char initAHT22;
-  uint8_t windDirection;
 }sensorData_t;
 
 void softwareTimerSetup();
