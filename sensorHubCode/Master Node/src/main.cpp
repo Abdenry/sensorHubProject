@@ -68,17 +68,21 @@ int main(int argc, char** argv){
                                         network.read(header, 0, 0);
                                         printf("Rcv bad type %d from 0%o\n", header.type, header.from_node);
                                         break;
-                        }                
+                        }
+                        printf("Time: %s\n",timeSTR);
 
                             for(int i = 0; i < numberOfMetrics; i++){
                                 if(((metricNames[i] == "Temperature") || (metricNames[i] == "Relative Humidity") || (metricNames[i] == "Heat Index")) && (packet.initAHT22 == 0)){
                                     continue;
                                 }
                                 sendMetric(curl, res, metricNames[i], *metrics[i], timeSTR);
-                                if(res == CURLE_OK){
-                                    printf("\n");
-                                    printf("%s: %.2f\n", metricNames[i], *metrics[i]);
-                                }
+                                
+                                printf("\n");
+
+                                //if(res == CURLE_OK){
+                                   // printf("\n");
+                                printf("%s: %.2f\n", metricNames[i], *metrics[i]);
+                                //}
                             }
                             printf("\n");
                     }
