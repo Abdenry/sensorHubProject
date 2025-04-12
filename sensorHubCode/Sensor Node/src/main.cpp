@@ -1,6 +1,6 @@
 #include <main.h>
-#define sendPackIntervalSec 5
-volatile int secondsPast = 0;
+#define watchdogCounterTarget 1 //watchdogCounterTarget * 8 seconds = WDT Interrupt Period
+volatile int watchdogCounter = 0;
 
 /**** Radio ****/
 RF24 radio(CE, CS);
@@ -19,38 +19,45 @@ void setup()
 {
   anemometerSetup();
   windVaneSetup();
-  softwareTimerSetup();
   Serial.begin(115200);
   while (!Serial){}
   radioSetup();
   dht.begin();
   Serial.println(F("Connected!"));
+  watchdogSetup();
   sei();
 }
 
 void loop()
 {
-  mesh.update();
-
-  if (secondsPast >= sendPackIntervalSec)
-  {
+  if (watchdogCounter >= watchdogCounterTarget){
+    radio.powerUp();
+    mesh.update();
     getWindspeed(&packet, anemometerArmDistMetres, conversionRatio, &revolutionsAnemometerCount);
     getAHT22(&packet, dht);
     getWindDirection(&packet);
     sendPacket(&packet, 77, sizeof(packet));
-    secondsPast = 0;
+    watchdogCounter =0;
+    radio.powerDown();
   }
+  sleepStation();
 }
 
 /**** AUXILIARY FUNCTIONS ****/
 
-void softwareTimerSetup()
-{
-  TCCR1A = 0;
-  TCCR1B = 0;
-  TCCR1B |= (1 << WGM12) | (1 << CS12);
-  OCR1A = (F_CPU / 256) - 1;
-  TIMSK1 |= (1 << OCIE1A);
+void watchdogSetup(){
+  // 8s WDT, Interrupt Mode
+  MCUSR &= ~(1<<WDRF);
+  WDTCSR |= (1<<WDCE) | (1<<WDE);
+  WDTCSR = (1<<WDIE) | (1<<WDP3) | (1<<WDP0);
+}
+
+void sleepStation(){
+  // Enable power-down Mode
+  SMCR &= ~((1<<SM0) | (1<<SM2));
+  SMCR |= (1<<SM1);
+  SMCR |= (1<<SE);
+  sleep_cpu();
 }
 
 void anemometerSetup()
@@ -110,19 +117,11 @@ void sendPacket(sensorData_t *packet, uint8_t msg_type, size_t packetSize)
         mesh.begin();
       }
     }
-    else
-    {
-      Serial.println("Send fail, Test OK");
-    }
-  }
-  else
-  {
-    Serial.print("Packet sent!\n");
   }
 }
 
 void getWindspeed(sensorData_t *packet, float anemometerArmDistMetres, float conversionRatio, volatile int* revolutionsAnemometerCount){
-  float speed = anemometerArmDistMetres * (conversionRatio * (((float)*revolutionsAnemometerCount / (float)sendPackIntervalSec) * (float)60));
+  float speed = anemometerArmDistMetres * (conversionRatio * (((float)*revolutionsAnemometerCount / (float)(watchdogCounterTarget*8)) * (float)60));
   *revolutionsAnemometerCount = 0;
   packet->windSpeed = speed;
 }
@@ -132,7 +131,6 @@ void getAHT22(sensorData_t *packet, DHT dhtSensor){
   packet->tempC = dhtSensor.readTemperature();
   packet->heatIndex =dhtSensor.computeHeatIndex(false);
   if (isnan(packet->RH) || isnan(packet->tempC) || isnan(packet->heatIndex)) {
-    Serial.println(F("Failed to read from DHT sensor!"));
     packet->initAHT22 = false;
   }else{
     packet->initAHT22 = true;
@@ -151,8 +149,6 @@ void getWindDirection(sensorData_t *packet){
     data |= ((PIND & (1 << Qh)) ? 0 : 1) << (7 - i);
     PORTD &= ~(1<<CLK);
   }
-  Serial.println(data);
-  Serial.println((float)data);
   packet->windDirection = (float)data;
 }
 
@@ -161,6 +157,6 @@ ISR(INT0_vect)
   revolutionsAnemometerCount += 1;
 }
 
-ISR(TIMER1_COMPA_vect){
-  secondsPast += 1;
+ISR(WDT_vect){
+  watchdogCounter += 1;
 }

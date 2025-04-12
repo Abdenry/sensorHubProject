@@ -34,7 +34,9 @@ typedef struct sensorData_t
   char initAHT22;
 }sensorData_t;
 
-void softwareTimerSetup();
+void watchdogSetup();
+
+void sleepStation();
 
 void anemometerSetup();
 
