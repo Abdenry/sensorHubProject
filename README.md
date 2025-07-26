@@ -40,10 +40,34 @@ Wind speed was measured using two magnets and a single US1881 latching hall effe
   <img width="1000" height="500" alt="anemometer" src="https://github.com/user-attachments/assets/a5d4ef46-5419-46ed-bece-f4bc87d31a2c" />
 </p>
 
-
-
 ## Grafana Dashboard
+The Grafana dashboard conviently displays historical readings for temperature, humidity, wind speed, and direction. It also provides an updated reading of the stations current temperature, humidity, and calculated heat index. The dashboard has been configured to retain this information for up to two weeks however this can be further increased if desired.
+<p align="center">
+  <img width="1903" height="816" alt="dashboard" src="https://github.com/user-attachments/assets/b66015e0-ad85-482d-a699-5bfeac061ae0" />
+  <img width="1897" height="495" alt="successfulTransmission" src="https://github.com/user-attachments/assets/e2d66b08-44b0-486b-84bd-03d61edd50ec" />
+</p>
 
-## Power Issues and Resolution
+## Power Supply and Challenges Faced
+Power for the station comes from a 1100 mAh LiPo battery, supported by four 1W solar panels connected in parallel. A solar power manager with Maximum Power Point Tracking (MPPT) is implemented to maximise the efficiency of the solar panels, switching between charging the station and its battery based on sunlight availability. It ensures that the battery remains charged during daylight hours, with enough capacity to keep the station operational overnight. After optimisations, the weather station consumes approximately 0.021 A at 3.72 V, providing an estimated 52 hours of operation without any solar input.
+
+Prior to optimising power consumption, a major challenge faced during development was the intermittent loss of communications particularly over night.
+
+<p align="center">
+  <img width="1901" height="497" alt="dropOuts" src="https://github.com/user-attachments/assets/1828a394-d64a-4bb9-8ae9-6ea01c60ebe1" />
+</p>
+
+Initially, it was suspected that the issue was not related to power due to the assumption that the 4 watt solar panel array was capable of powering and charging the station which had a measured active consumption of 0.24W (65mA @ 3.7V). After investigating the issue for a significant period of time, no definitive answer could explain the intermittent communication loss overnight other than insufficient solar power. To prove this was the root of the problem the station was connected to a bench top power supply with a constant 3.7V over night. This resulted in no communication drop outs over night nor for the next couple of days as the battery was sufficiently charged from the constant 3.7 V provided by the power supply. Optimisations for the code then proceeded to lower the active consumption.
+
+### Optimisations
+The first optimisation was replacing the software timer used to intermittently send weather metrics to the Raspberry Pi to a Watchdog Timer. This did not directly improve the power consumption of the station, however, it would allow the station to wake up from a power down mode, which was the second optimisation performed.
+
+Entering the Arduino Nano/ATmega328p into a power down mode and only powering up after the Watchdog Timer expired directly reduced power consumption from 0.24W (65mA @ 3.7V) to 0.208W (56mA @ 3.7V), a 13% power efficiency improvement.
+
+This was further improved by 64% by powering down the NRF24l01 radio module when not in use. This lowered the active consumption of the station to just 0.0744W (20mA @ 3.7V). This is a total 69% improvement from the initial 0.24W (65mA @ 3.7V) observed prior to optimising.
+
+With the stations active power consumption optimised, the 4W solar panel array was able to sufficiently charge and power the station eliminating the intermittent communication loss.
 
 ## Future Improvements
+- This station could be improved in the future with the inclusion of a rainfall sensor to collect metrics on the volume and rate of rainfall. One possible design for this sensor could involve a tipping bucket mechanism, where a known volume of rain causes a bucket to tip, triggering a hall-effect sensor to log the event. By counting the frequency of tipping, the system could accurately measure rate and cumulative rainfall over time.
+- Improvements could also be made to the assembly of the custom sensors to be more accessible for servicing as the current design is finicky to put together, not suitable for consistently taking apart and putting back together.
+- The internal wiring of the station could also be significantly improved by switching the single core wire used for **each** connection, to a multi-core cable. This could make the internal wiring much tidier and easier to access/service.
