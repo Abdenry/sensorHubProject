@@ -41,7 +41,7 @@ Wind speed was measured using two magnets and a single US1881 latching hall effe
 </p>
 
 ## Grafana Dashboard
-The Grafana dashboard conviently displays historical readings for temperature, humidity, wind speed, and direction. It also provides an updated reading of the stations current temperature, humidity, and calculated heat index. The dashboard has been configured to retain this information for up to two weeks however this can be further increased if desired.
+The Grafana dashboard conveniently displays historical readings for temperature, humidity, wind speed, and direction. It also provides an updated reading of the stations current temperature, humidity, and calculated heat index. The dashboard has been configured to retain this information for up to two weeks however this can be further increased if desired.
 <p align="center">
   <img width="1903" height="816" alt="dashboard" src="https://github.com/user-attachments/assets/b66015e0-ad85-482d-a699-5bfeac061ae0" />
   <img width="1897" height="495" alt="successfulTransmission" src="https://github.com/user-attachments/assets/e2d66b08-44b0-486b-84bd-03d61edd50ec" />
